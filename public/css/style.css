@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+:root {
+    --main: #000000;
+    --secondary: white;
+    --dark: #092032;
+    --body: #516171;
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    --fonSize: 16px;
+
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Barlow", sans-serif;
+    font-size: var(--fonSize);
+    color: var(--body);
+    line-height: 1.8;
+
+}
+
+section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.mb-6 {
+    margin-bottom: 100px;
+}
+
+.top-nav {
+    background-color: #151712;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.top-nav a {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 2pxk2;
+}
+
+.top-nav i,
+.top-nav span {
+    vertical-align: middle;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800 !important;
+    color: black;
+}
+
+.social-links a {
+    color: white;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    border-radius: 100%;
+    transition: 0.25s ease-in-out;
+}
+
+.social-links a:hover {
+    background-color: white;
+    color: var(--main);
+
+}
+
+.navbar {
+    box-shadow: var(--shadow);
+}
+
+.navbar .navbar-nav .nav-link {
+    color: var(--dark);
+}
+
+a {
+    color: var(--dark);
+    transition: all 0.4s ease;
+    font-weight: 500;
+}
+
+
+.banner img {
+    object-fit: cover;
+    width: 100%;
+    object-position: center center;
+    height: 90vh;
+    z-index: 0;
+}
+
+.bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));
+    top: 0;
+}
+
+.bg-text {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    z-index: 2;
+}
+
+.banner .banner-title {
+    font-size: 2.5rem;
+}
+
+
+.text-shadow-1 {
+    text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25);
+}
+
+.text-shadow-2 {
+    text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25);
+}
+
+.text-shadow-3 {
+    text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25);
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.project h2,
+.project h6 {
+    color: white;
+}
+
+.project h6::before {
+    content: "";
+    height: 2px;
+    width: 30px;
+    display: inline-block;
+    background: blue;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.project .overlay {
+    width: 100%;
+    height: 220px;
+    z-index: 1;
+    position: absolute;
+    background-color: black;
+    background: linear-gradient(180deg, rgba(255, 76, 41, 0) 0%, var(--dark) 100%);
+    bottom: 0;
+    left: 0;
+}
+
+.project .content {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    left: 0;
+    bottom: 50px
+}
+
+#services .service {
+    transition: transform .3s;
+}
+
+#services .service:hover {
+    transform: scale(1.15);
+    cursor:pointer;
+}
+
+.project .project-img {
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 300px;
+    transition: transform .3s ease;
+}
+
+.project:hover .project-img {
+    -ms-transform: scale(1.2);
+    /* IE 9 */
+    -webkit-transform: scale(1.2);
+    /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
+.contact-img {
+    object-fit: cover;
+    height: 400px;
+}
+
+#services .icon {
+    background-color: rgba(25, 187, 25, 0.788);
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#services .icon i {
+    font-size: 50px;
+    color: white;
+}
+.footer{
+    background-color: #151712;
+}
+.navbar-back{
+    background-color: #ea7035;
+}
+
+/* Style de la galerie */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* gap: 20px;Espace entre les photos */
+    /* padding: 20px; */
+}
+
+/* Style des éléments de la galerie */
+.gallery-item {
+    width: 300px; /* Largeur de chaque élément */
+    text-align: center;
+}
+
+.gallery-item img {
+    /* max-width: 100%; :Pour s'adapter à la largeur de l'élément parent */
+    /* border: 1px solid #f88d00; Bordure légère */
+    border-radius: 4px; /* Coins arrondis */
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
