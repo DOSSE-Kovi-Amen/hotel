@@ -1,4 +1,4 @@
-<section id="services" class="bg-primary">
+<section id="services">
     <h1 class="text-center text-white mb-5"><strong>Nos activités</strong></h1>
 
     <div class="container">
@@ -6,7 +6,7 @@
             <div class="col-lg-4">
                 <div class="service card p-5 mb-5 d-flex flex-column shadow-lg border-0 align-items-center">
                     <div class="icon bg-success">
-                        <i class="fa-solid fa-utensils"></i> 
+                        <i class="fa-solid fa-utensils"></i>
                     </div>
                     <div class="content text-center">
                         <h3 class="mt-3">Nutrition</h3>
@@ -41,9 +41,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </div>
 
 </section>

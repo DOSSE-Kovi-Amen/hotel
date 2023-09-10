@@ -30,20 +30,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mx-5">
                 <li class="nav-item px-3">
-                    <a class="nav-link text-bold active" aria-current="page"
+                    <a style="font-weight: 900" class="nav-link text-uppercase text-white  active" aria-current="page"
                         href="{{ url('/') }}">Accueil</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link text-bold" href="{{ url('about') }}">A propos</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('about') }}">A propos</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link text-bold" href="{{ url('projects') }}">Nos projets</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('projects') }}">Nos projets</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link text-bold" href="{{ url('blog') }}">Blog</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a href="{{ url('contact') }}" class="nav-link text-bold">Contact</a>
+                    <a style="font-weight: 900" href="{{ url('contact') }}" class="nav-link text-uppercase text-white ">Contact</a>
                 </li>
             </ul>
             <a style="margin-right:5px" class="btn btn-success" href="{{ url('') }}">Faire un don</a>

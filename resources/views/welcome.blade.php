@@ -3,6 +3,7 @@
 @section('content')
 {{-- Banner Slides --}}
 <div id="banner-slide">
+
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -13,72 +14,71 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active banner">
-                <img class="bg-img" src="{{ asset('images/slide1.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('images/ban0.jpeg') }}" class="d-block w-100" alt="...">
 
-                <div class="bg-text text-left">
-                    <div class="container">
-                        <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
-                        <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p>
-                        <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
+
                 <div class="bg-overlay"></div>
             </div>
             <div class="carousel-item banner">
-                <img class="bg-img" src="{{ asset('images/slide2.jpg"') }} class=" d-block w-100" alt="...">
-                <div class="bg-text text-center">
+                <img src="{{ asset('images/ban2.jpeg') }}" class="d-block w-100" alt="...">
+                {{-- <div class="bg-text text-center">
                     <div class="container">
                         <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
                         <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p>
-                        <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
-
                     </div>
-                </div>
+                </div> --}}
                 <div class="bg-overlay"></div>
 
             </div>
             <div class="carousel-item banner">
-                <img class="bg-img" src="{{ asset('images/slide3.jpg') }}" class="d-block w-100" alt="...">
-                <div class="bg-text text-center">
+                <img src="{{ asset('images/ban3.jpeg') }}" class="d-block w-100" alt="...">
+                {{-- <div class="bg-text text-center">
                     <div class="container">
                         <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
                         <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p>
-                        <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
-
                     </div>
-                </div>
+                </div> --}}
                 <div class="bg-overlay"></div>
 
             </div>
             <div class="carousel-item banner">
-                <img class="bg-img" src="{{ asset('images/slide4.jpg') }}" class="d-block w-100" alt="...">
-                <div class="bg-text text-right">
+                <img src="{{ asset('images/ban4.jpeg') }}" class="d-block w-100" alt="...">
+                {{-- <div class="bg-text text-right">
                     <div class="container">
                         <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
                         <p class="text-white"></p>
-                        <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
-
                     </div>
-                </div>
+                </div> --}}
                 <div class="bg-overlay"></div>
 
             </div>
+            <div class="bg-text text-center">
+                <div class="container">
+                    <h1 class="banner-title text-white">VISION DYNAMIK POUR LA JEUNESSE</h1>
+                    {{-- <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p> --}}
+                </div>
+            </div>
         </div>
-        <button style="width:50px" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button style="width:50px" class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 </div>
+{{-- @include('includes.services') --}}
 
 {{-- About --}}
-<section id="about">
+<section id="about" style="background-color: #171512">
     <div class="container px-4">
         <div class="row align-items-center">
+
+            <div class="col-12 col-sm-8 col-lg-6">
+                <img data-aos="fade-right" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
+            </div>
             <div class="col-lg-6 mb-3">
                 <h1 class="mb-3" data-aos="fade-left">Qui sommes-nous?</h1>
                 <p>
@@ -88,22 +88,15 @@
 
                 <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="col-12 col-sm-8 col-lg-6">
-                <img data-aos="fade-right" style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.jpg') }}" class="mx-lg-auto img-fluid" alt="about">
-            </div>
         </div>
     </div>
 </section>
 {{-- Services --}}
 
-@include('includes.services')
 {{-- Projets --}}
 <section id="projects">
-    <div class="container" data-aos="fade-right">
-
-
+    <div class="container">
         <h1 class="text-center mb-5"><strong>Projets</strong></h1>
-        <div>ghgggggggg</div>
 
         <div class="owl-theme owl-carousel" id="projects-slider">
             @foreach ($projects as $project)
@@ -142,10 +135,31 @@
     </div>
 </section>
 
+{{-- About --}}
+<section id="about">
+    <div class="container px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-3">
+                <h1 class="mb-3" data-aos="fade-left">Qui sommes-nous?</h1>
+                <p>
+                    Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
+                    La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.
+                </p>
+
+                <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
+            </div>
+            <div class="col-12 col-sm-8 col-lg-6">
+                <img data-aos="fade-right" style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.jpg') }}" class="mx-lg-auto img-fluid" alt="about">
+            </div>
+        </div>
+    </div>
+</section>
+
 <!--Section: Content-->
 <section id="blog" style="background: rgba(216, 216, 216, 0.226)">
-    <div class="container" data-aos="fade-left">
-        <h1 class="mb-5 text-center"><strong>Derniers Posts</strong></h1>
+    <div class="container">
+        <h3 class="section-title mb-1">BLOG</h3>
+        <h2 class="section-subtile mb-5 text-left">Derniers Posts</h2>
 
         <div class="row">
             @foreach ($last_posts as $post)
@@ -177,12 +191,12 @@
     </div>
 </section>
 <!-- Galery -->
-<section class="photo-gallery" style="background-color: rgba(201, 200, 200, 0.384)">
+<section class="photo-partner">
     @php
     $partners=App\Models\SectionMedia::find(2);
     @endphp
     @foreach (json_decode($partners->medias) as $partner)
-    <div class="gallery-item">
+    <div class="partner-item">
         <img src="{{ asset(Voyager::image($partner)) }}" alt="Photo 1" class="galery-img">
     </div>
     @endforeach

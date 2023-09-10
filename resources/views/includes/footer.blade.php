@@ -1,10 +1,10 @@
 <footer class="py-5 footer ">
     <div class="container">
         <div class="row">
-            <div class="col-6 col-md-5 mb-3">
-                <h5 class="text-white">Qui sommes-nous?</h5>
-                <p> Le Bon Samaritain est une association qui vise à pratiquer la parole de Dieu en ayant pour
-                    missions ... <a class="text-white text-decoration-underline" href="{{ url('about') }}">En savoir
+            <div class="col-6 col-md-3 mb-3">
+                <img style="object-fit:contain; height:55px" src="{{ asset(Voyager::image(setting('site.logo'))) }}" alt="" srcset="">
+                <p class="text-white mt-3"> Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui...
+                    <a class="text-white text-decoration-underline" href="{{ url('about') }}">En savoir
                         plus</a>
 
 
@@ -43,8 +43,7 @@
                     <p>Monthly digest of what's new and exciting from us.</p>
                     <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                         <label for="newsletter1" class="visually-hidden">Adresse email</label>
-                        <input id="newsletter1" name="email" type="email" class="form-control"
-                            placeholder="Adresse email" required>
+                        <input id="newsletter1" name="email" type="email" class="form-control" placeholder="Adresse email" required>
                         <button class="btn btn-primary" type="submit">S'inscrire</button>
                     </div>
                 </form>
@@ -59,7 +58,7 @@
                     <a href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
                     <a href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
                     <a href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
-          
+
                 </div>
 
 
