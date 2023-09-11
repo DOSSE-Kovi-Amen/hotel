@@ -52,8 +52,9 @@ class FormulaireController extends Controller
             'experience' => $request->input('experience'),
             'attentes' => $request->input('attentes'),
             'contribution' => $request->input('contribution'),
+            'activity_id' => $request->input('activity_id'),
         ]);
-        dd($request);
+        // dd($request);
 
         return back()->with('message','Soumission du formulaire réussi');
 

@@ -4,9 +4,17 @@
 <div style="height:100%;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
     <div class="container text-center">
         <h2 class="text-center py-3"><strong style="color: white">Formulaire d'inscription <span style="color: #e64e">({{ $activity->title }})</span></strong></h2>
+        @if (session()->has('message'))
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('message') }}
+        </div>
+
+        @endif
     </div>
+
     <form action="{{ url('formulaire') }}" method="post">
         @csrf
+
 
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="card shadow col-12 col-lg-6 my-5 p-5">
@@ -111,5 +119,6 @@
 </div>
 
 </div>
+
 
 @endsection

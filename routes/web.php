@@ -31,7 +31,7 @@ Route::get('/', function () {
     return view('welcome', compact('last_posts', 'projects','activities'));
 });
 Route::get('inscription/{activity_id}', function ($activity_id) {
-    $activity= Activity::find($activity_id);
+    $activity= Activity::findOrFail($activity_id);
     // Display three last posts
     return view('formulaire', compact('activity'));
 });
