@@ -30,22 +30,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mx-5">
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase text-white  active" aria-current="page"
-                        href="{{ url('/') }}">Accueil</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('/') ? 'text-black' : 'text-white' }}" href="{{ url('/') }}">Accueil</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('about') }}">A propos</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('about') ? 'text-black' : 'text-white' }}" href="{{ url('about') }}">A propos</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('projects') }}">Nos projets</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('projects') ? 'text-black' : 'text-white' }}" href="{{ url('projects') }}">Nos projets</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase text-white " href="{{ url('blog') }}">Blog</a>
+                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('blog') ? 'text-black' : 'text-white' }}" href="{{ url('blog') }}">Blog</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" href="{{ url('contact') }}" class="nav-link text-uppercase text-white ">Contact</a>
+                    <a style="font-weight: 900" href="{{ url('contact') }}" class="nav-link text-uppercase {{ request()->is('contact') ? 'text-black' : 'text-white' }}">Contact</a>
                 </li>
             </ul>
+
             {{-- <a style="margin-right:5px" class="btn btn-success" href="{{ url('') }}">Faire un don</a> --}}
         </div>
     </div>

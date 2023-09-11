@@ -1,11 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Project;
-use App\Models\Newsletter;
+use App\Models\Activity;
 use App\Models\Category;
+use App\Models\Newsletter;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,12 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
+    $activities= Activity::all();
     // Display three last posts
     $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
     $projects = Project::orderBy('updated_at', 'desc')->get();
 
-    return view('welcome', compact('last_posts', 'projects'));
+    return view('welcome', compact('last_posts', 'projects','activities'));
 });
 
 Route::get('about', function () {
@@ -81,5 +84,7 @@ Route::post('newsletters', function (Request $request) {
 });
 
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('inscriptions', [InscriptionController::class,'index']);
+    Route::get('inscriptions/{activity_id}',[InscriptionController::class,'index2']);
     Voyager::routes();
 });

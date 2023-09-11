@@ -92,6 +92,47 @@
     </div>
 </section>
 {{-- Services --}}
+<section id="activity">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title  mb-5 ">Nos activités</h2>
+
+        </div>
+
+        <div class="row p-5">
+            <div class="col-lg-8">
+                <div class="tab-content" id="v-pills-tabContent">
+                    @foreach ($activities as $key=> $activity)
+                    <div class="tab-pane fade{{ $key==0? 'show active':'' }}" id="activity{{ $activity->id }}" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                        <h4>{{ $activity->title }}</h4>
+                        <p>{!! $activity->description !!}</p>
+
+                    </div>
+                    <a href="{{ url('/') }}">S'inscrire à cette activité</a>
+
+                    @endforeach
+                </div>
+
+
+            </div>
+            <div class="col-lg-4">
+                <div class="position-sticky" style="top: 7rem;">
+
+                    <div id="more" class="list-group">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                            @foreach ($activities as $key=> $activity)
+                            <a class="nav-link {{$key==0? 'active':'' }}" data-bs-toggle="pill" data-bs-target="#activity{{ $activity->id }}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="{{$key==0? true:false }}">{{ $activity->title }}</a>
+
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
 
 {{-- Projets --}}
 <section id="projects">
