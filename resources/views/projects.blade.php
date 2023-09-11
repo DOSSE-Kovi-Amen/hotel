@@ -6,7 +6,7 @@
         background-position:center center;">
         <div class="d-flex flex-row justify-content-center align-items-center"
             style="height:300px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
-            <h1 class="text-center text-white mb-5"><strong>Projets</strong></h1>
+            <h1 class="text-center page-title text-white mb-5"><strong>Projets</strong></h1>
 
         </div>
     </div>

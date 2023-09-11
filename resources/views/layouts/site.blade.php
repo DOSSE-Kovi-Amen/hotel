@@ -42,16 +42,16 @@
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <h3 class="text-white">Inscrivez-vous à la newsletter</h3>
-                    <p class="text-white">Recevez des infos nous concernant s.</p>
+                    <p class="text-white">Recevez des infos nous concernant sur nos activité.</p>
                 </div>
                 <div class="col-12 col-lg-6">
                     <form action="{{ url('newsletters') }}" method="POST">
                         @csrf
 
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                        <div class="d-flex flex-column flex-sm-row w-100">
                             <label for="newsletter1" class="visually-hidden">Adresse email</label>
                             <input id="newsletter1" name="email" type="email" class="newsletter-input" placeholder="Adresse email" required>
-                            <button class="btn btn-dark" type="submit">S'inscrire</button>
+                            <button class="newsletter-btn" type="submit">S'inscrire</button>
                         </div>
                     </form>
                 </div>

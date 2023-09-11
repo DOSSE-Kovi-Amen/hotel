@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
 
 :root {
     --main: #000000;
@@ -29,13 +30,21 @@ a {
 }
 
 body {
-    font-family: "Barlow", sans-serif;
-    font-size: var(--fonSize);
+    font-family: 'Roboto', sans-serif; /* Remplacez 'Roboto' par le nom de la police de votre choix */
+    font-size: 16px; /* Taille de police par défaut pour le texte du corps */
+    line-height: 1.5;
     color: var(--body);
     line-height: 1.8;
 
 }
-
+ h2, h3 {
+    font-family: 'Pacifico', cursive; /* Utilisation de la police Pacifico */
+    /* Vos autres styles de titres ici */
+}
+h1 {
+    font-family: 'Roboto', sans-serif; /* Utilisation de la police Pacifico */
+    /* Vos autres styles de titres ici */
+}
 section {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -257,6 +266,11 @@ a {
     /* Largeur de chaque élément */
     text-align: center;
 }
+.gallery-item:hover {
+    transform: scale(1.2);
+    transition: 200ms ease-in-out;
+    /* Largeur de chaque élément */
+}
 
 .gallery-item img {
     /* max-width: 100%; :Pour s'adapter à la largeur de l'élément parent */
@@ -362,11 +376,57 @@ a {
     color: #ea7035;
 }
 
+.about-title::before,
+.about-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background-color: #ea7035;
+}
+
+.about-title::before {
+    bottom: -10px;
+}
+
+.about-title::after {
+    bottom: -5px;
+    width: 200px;
+
+}
+
 #about p::first-letter {
     color: #ea7035;
     /* Change the color to #ea7035 */
     font-size: 200%;
     /* Increase the font size to 150% of the normal size */
+}
+.page-title {
+    position: relative;
+    font-size: 40px;
+    color: #000000;
+    display: inline-block;
+}
+
+.page-title::before,
+.page-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: #ea7035;
+}
+
+.page-title::before {
+    bottom: -10px;
+}
+
+.page-title::after {
+    bottom: -5px;
+    width: 140px;
+
 }
 
 .section-title {
@@ -378,37 +438,51 @@ a {
 
 .section-title::before,
 .section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 80px ;
-  height: 2px;
-  background-color: #ea7035;
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: #ea7035;
 }
 
 .section-title::before {
-  bottom:  -10px;
+    bottom: -10px;
 }
 
 .section-title::after {
-  bottom: -5px;
-  width: 140px ;
+    bottom: -5px;
+    width: 140px;
 
 }
-.section-subtile{
+
+.section-subtile {
     color: #ea7035;
 }
-#newsletter{
+
+#newsletter {
     background-color: #ea7035;
 }
-.newsletter-input{
-    background-color: #ea7035;
-    color:white;
 
+.newsletter-input {
+    background-color: #ea7035;
+    color: white;
     width: 100%;
     border: 2px solid white;
-    height:50px;
+    height: 50px;
     outline: none;
     padding: 10px;
 
+}
+
+.newsletter-input::placeholder{
+    color: #000000;
+}
+.newsletter-btn{
+    width: 200px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background-color: #000000;
 }

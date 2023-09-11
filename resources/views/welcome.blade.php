@@ -80,7 +80,7 @@
                 <img data-aos="fade-right" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
-                <h2 class="about-title mb-3" data-aos="fade-left">Qui sommes-nous?</h2>
+                <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
                 <p class="text-white">
                     Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et...
 
@@ -130,7 +130,7 @@
         @foreach ($projects as $project)
         @include('includes.modals.project')
         @endforeach
-        <p class="text-center"><a class="btn btn-primary mt-5 px-4 py-2" href="{{ url('projects') }}">Voir tout</a>
+        <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('projects') }}">Voir tout</a>
         </p>
     </div>
 </section>
@@ -160,42 +160,57 @@
                         </p>
                     </div>
 
-                    <p class="text-center"><a class="btn btn-primary" href="{{ url('blog/article/' . $post->category?->slug  . '/' . $post->slug) }}">Lire
+                    <p class="text-center"><a class="btn btn-dark" href="{{ url('blog/article/' . $post->category?->slug  . '/' . $post->slug) }}">Lire
                             l'article</a></p>
                 </div>
             </div>
             @endforeach
 
         </div>
-        <p class="text-center"><a class="btn btn-primary mt-5 px-4 py-2" href="{{ url('blog') }}">Voir tout</a>
+        <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('blog') }}">Voir tout</a>
         </p>
     </div>
 </section>
 <!-- Galery -->
-<section class="photo-partner">
-    @php
-    $partners=App\Models\SectionMedia::find(2);
-    @endphp
-    @foreach (json_decode($partners->medias) as $partner)
-    <div class="partner-item">
-        <img src="{{ asset(Voyager::image($partner)) }}" alt="Photo 1" class="galery-img">
+<section class="text-center" style="background-color: #eeeeee">
+    {{-- <h3 class="section-subtile mb-1">Partenaires</h3> --}}
+    <h2 class="section-title mb-5" data-aos="fade-left">Partenaires</h2>
+    <div class="photo-partner">
+        @php
+        $partners=App\Models\SectionMedia::find(2);
+        @endphp
+        @foreach (json_decode($partners->medias) as $partner)
+        <div class="partner-item">
+            <img src="{{ asset(Voyager::image($partner)) }}" alt="Photo 1" class="galery-img">
+        </div>
+        @endforeach
+
     </div>
-    @endforeach
 
 
     <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
 </section>
 <!--Section: Content-->
 
-<section class="photo-gallery" style="background-color: rgba(201, 200, 200, 0.384)">
-    @php
-    $galeries=App\Models\SectionMedia::find(1);
-    @endphp
-    @foreach (json_decode($galeries->medias) as $galery)
+<section class="text-center" style="background-color: #171512">
+    <h2 class="section-title mb-5 text-center text-white" data-aos="fade-left">Galerie d'images</h2>
+
+    <div class="photo-gallery">
+        @php
+        $galeries=App\Models\SectionMedia::find(1);
+        @endphp
+        @for ($i=0; $i < 12; $i++) <div class="gallery-item">
+            <img src="{{ asset(Voyager::image(json_decode($galeries->medias)[$i])) }}" alt="Photo 1" class="galery-img">
+    </div>
+
+    @endfor
+    {{-- @foreach (json_decode($galeries->medias) as $galery)
     <div class="gallery-item">
         <img src="{{ asset(Voyager::image($galery)) }}" alt="Photo 1" class="galery-img">
     </div>
-    @endforeach
+    @endforeach --}}
+
+    </div>
 
 
     <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->

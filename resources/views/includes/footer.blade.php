@@ -1,7 +1,7 @@
 <footer class="py-5 footer ">
     <div class="container">
         <div class="row">
-            <div class="col-6 col-md-3 mb-3">
+            <div class="col-6 col-md-9 mb-3">
                 <img style="object-fit:contain; height:55px" src="{{ asset(Voyager::image(setting('site.logo'))) }}" alt="" srcset="">
                 <p class="text-white mt-3"> Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui...
                     <a class="text-white text-decoration-underline" href="{{ url('about') }}">En savoir
@@ -9,7 +9,7 @@
 
 
             </div>
-            <div class="col-6 col-md-2 mb-3">
+            <div class="col-6 col-md-3 mb-3">
 
                 <h5 class="text-white">Menu</h5>
                 <ul class="nav flex-column">
@@ -42,13 +42,13 @@
         </div>
 
         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-            <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+            <p>&copy; 2023 Insight, Inc. Tout droit réservé.</p>
             <ul class="list-unstyled d-flex text-white">
                 <div class="col-auto social-links">
-                    <a href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>
-                    <a href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
-                    <a href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
-                    <a href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
+                    <a target="_blank" href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>
+                    <a target="_blank" href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
+                    <a target="_blank" href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
 
                 </div>
 

@@ -2,16 +2,16 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-auto">
-                <a href="mailto:{{ setting('site.email') }}"> <i class='bx bxs-envelope'></i>
+                <a href="mailto:"> <i class='bx bxs-envelope'></i>
                     {{ setting('site.email') }}</a>
-                <a href="tel:+{{ setting('site.contact') }}"> <i class='bx bxs-phone-call'></i>
+                <a href="tel:"> <i class='bx bxs-phone-call'></i>
                     {{ setting('site.contact') }}</a>
             </div>
             <div class="col-auto social-links">
-                <a href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>
-                <a href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
-                <a href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
-                <a href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
+                <a target="_blank" href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>
+                <a target="_blank" href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
+                <a target="_blank" href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                     <a style="font-weight: 900" href="{{ url('contact') }}" class="nav-link text-uppercase text-white ">Contact</a>
                 </li>
             </ul>
-            <a style="margin-right:5px" class="btn btn-success" href="{{ url('') }}">Faire un don</a>
+            {{-- <a style="margin-right:5px" class="btn btn-success" href="{{ url('') }}">Faire un don</a> --}}
         </div>
     </div>
 </nav>

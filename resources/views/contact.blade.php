@@ -4,7 +4,7 @@
 <div id="top_banner" style="background-image: url({{ asset('images/bg_banner1.jpg') }}); background-size:cover;
          background-position:center center;">
     <div class="d-flex flex-row justify-content-center align-items-center" style="height:500px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
-        <h1 class="text-center text-white mb-5">Contact</h1>
+        <h1 class="text-center page-title text-white mb-5">Contact</h1>
 
     </div>
 </div>
@@ -29,7 +29,7 @@
                         <small>Message</small>
                         <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-success">Envoyer</button>
                 </form>
             </div>
         </div>

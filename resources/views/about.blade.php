@@ -3,8 +3,8 @@
 @section('content')
 <div id="top_banner" style="background-image: url({{ asset('images/bg_banner1.jpg') }}); background-size:cover;
          background-position:center center;">
-    <div class="d-flex flex-row justify-content-center align-items-center" style="height:300px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
-        <h1 class="text-center text-white mb-5"><strong>A propos</strong></h1>
+    <div class="d-flex flex-row justify-content-center align-items-center" style="height:450px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
+        <h1 class="text-center page-title text-white mb-5" data-aos="fade-left"><strong>A PROPOS</strong></h1>
 
     </div>
 </div>
@@ -15,7 +15,7 @@
                 <img style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
-                <h2 class="about-title mb-3">Qui sommes-nous?</h2>
+                <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
                 <p class="text-white">Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
                     La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.</p>
             </div>
