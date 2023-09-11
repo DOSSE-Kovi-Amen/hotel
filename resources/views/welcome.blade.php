@@ -72,7 +72,7 @@
 {{-- @include('includes.services') --}}
 
 {{-- About --}}
-<section id="about" style="background-color: #171512">
+<section id="about">
     <div class="container px-4">
         <div class="row align-items-center">
 
@@ -80,13 +80,13 @@
                 <img data-aos="fade-right" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
-                <h1 class="mb-3" data-aos="fade-left">Qui sommes-nous?</h1>
-                <p>
-                    Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
-                    La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.
+                <h2 class="about-title mb-3" data-aos="fade-left">Qui sommes-nous?</h2>
+                <p class="text-white">
+                    Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et...
+
                 </p>
 
-                <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
+                <a href="{{ url('about') }}" class="btn btn-main">En savoir plus</a>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
 {{-- Projets --}}
 <section id="projects">
     <div class="container">
-        <h1 class="text-center mb-5"><strong>Projets</strong></h1>
+        <h2 class="section-title text-left mb-5"><strong>Nos Projets</strong></h2>
 
         <div class="owl-theme owl-carousel" id="projects-slider">
             @foreach ($projects as $project)
@@ -135,31 +135,12 @@
     </div>
 </section>
 
-{{-- About --}}
-<section id="about">
-    <div class="container px-4">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-3">
-                <h1 class="mb-3" data-aos="fade-left">Qui sommes-nous?</h1>
-                <p>
-                    Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
-                    La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.
-                </p>
-
-                <a href="{{ url('about') }}" class="btn btn-primary">En savoir plus</a>
-            </div>
-            <div class="col-12 col-sm-8 col-lg-6">
-                <img data-aos="fade-right" style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.jpg') }}" class="mx-lg-auto img-fluid" alt="about">
-            </div>
-        </div>
-    </div>
-</section>
 
 <!--Section: Content-->
 <section id="blog" style="background: rgba(216, 216, 216, 0.226)">
-    <div class="container">
-        <h3 class="section-title mb-1">BLOG</h3>
-        <h2 class="section-subtile mb-5 text-left">Derniers Posts</h2>
+    <div class="container text-center">
+        <h3 class="section-subtile mb-1">BLOG</h3>
+        <h2 class="section-title  mb-5 ">Derniers Posts</h2>
 
         <div class="row">
             @foreach ($last_posts as $post)

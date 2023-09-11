@@ -12,11 +12,11 @@
     <div class="container px-4">
         <div class="row align-items-center">
             <div class="col-12 col-sm-8 col-lg-6">
-                <img style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.jpg') }}" class="mx-lg-auto img-fluid" alt="about">
+                <img style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
-                <h1 class="mb-3">Qui sommes-nous?</h1>
-                <p>Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
+                <h2 class="about-title mb-3">Qui sommes-nous?</h2>
+                <p class="text-white">Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
                     La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.</p>
             </div>
 
@@ -24,7 +24,7 @@
     </div>
 </section>
 
-<div class="container">
+{{-- <div class="container">
 
     <div class="row p-5">
         <div class="col-lg-8">
@@ -84,5 +84,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

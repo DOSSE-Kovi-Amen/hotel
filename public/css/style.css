@@ -193,7 +193,7 @@ a {
 
 #services .service:hover {
     transform: scale(1.15);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .project .project-img {
@@ -231,10 +231,13 @@ a {
     font-size: 50px;
     color: white;
 }
-.footer{
-    background-color: #000000;/* 151712 */
+
+.footer {
+    background-color: #000000;
+    /* 151712 */
 }
-.navbar-back{
+
+.navbar-back {
     background-color: #ea7035;
 }
 
@@ -250,15 +253,17 @@ a {
 
 /* Style des éléments de la galerie */
 .gallery-item {
-    width: 300px; /* Largeur de chaque élément */
+    width: 300px;
+    /* Largeur de chaque élément */
     text-align: center;
 }
 
 .gallery-item img {
     /* max-width: 100%; :Pour s'adapter à la largeur de l'élément parent */
     /* border: 1px solid #f88d00; Bordure légère */
-    border-radius: 4px; /* Coins arrondis */
-    width:100%;
+    border-radius: 4px;
+    /* Coins arrondis */
+    width: 100%;
     height: 200px;
     object-fit: cover;
 }
@@ -280,15 +285,17 @@ a {
 
 /* Style des éléments de la galerie */
 .partner-item {
-    width: 300px; /* Largeur de chaque élément */
+    width: 300px;
+    /* Largeur de chaque élément */
     text-align: center;
 }
 
 .partner-item img {
     /* max-width: 100%; :Pour s'adapter à la largeur de l'élément parent */
     /* border: 1px solid #f88d00; Bordure légère */
-    border-radius: 4px; /* Coins arrondis */
-    width:100%;
+    border-radius: 4px;
+    /* Coins arrondis */
+    width: 100%;
     height: 200px;
     object-fit: cover;
 }
@@ -299,13 +306,21 @@ a {
 }
 
 
-.btn-primary{
-background-color: #ea7035;
+.btn-main {
+    background-color: #ea7035;
+    color: white
 }
 
-.carousel-control-next,.carousel-control-prev{
+.btn-main:hover,
+.btn-main:active {
+    background-color: #ac572d;
+    color: #000000;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
     position: absolute;
-    top:40%;
+    top: 40%;
     width: 70px;
     height: 70px;
     /* border-radius: 50%; */
@@ -315,20 +330,85 @@ background-color: #ea7035;
 
 }
 
-.carousel-control-prev:hover,.carousel-control-next:hover{
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
     background-color: #ea7035;
 }
+
 /* Media query pour les écrans de téléphone */
 @media (max-width: 767px) {
-    .carousel-control-next,.carousel-control-prev{
+
+    .carousel-control-next,
+    .carousel-control-prev {
         display: none;
 
     }
-  }
+}
 
-  /* Media query pour les écrans de tablette */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .carousel-control-next,.carousel-control-prev{
-       display: none;
+/* Media query pour les écrans de tablette */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        display: none;
     }
-  }
+}
+
+#about {
+    background-color: #171512
+}
+
+.about-title {
+    color: #ea7035;
+}
+
+#about p::first-letter {
+    color: #ea7035;
+    /* Change the color to #ea7035 */
+    font-size: 200%;
+    /* Increase the font size to 150% of the normal size */
+}
+
+.section-title {
+    position: relative;
+    font-size: 30px;
+    color: #000000;
+    display: inline-block;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 80px ;
+  height: 2px;
+  background-color: #ea7035;
+}
+
+.section-title::before {
+  bottom:  -10px;
+}
+
+.section-title::after {
+  bottom: -5px;
+  width: 140px ;
+
+}
+.section-subtile{
+    color: #ea7035;
+}
+#newsletter{
+    background-color: #ea7035;
+}
+.newsletter-input{
+    background-color: #ea7035;
+    color:white;
+
+    width: 100%;
+    border: 2px solid white;
+    height:50px;
+    outline: none;
+    padding: 10px;
+
+}

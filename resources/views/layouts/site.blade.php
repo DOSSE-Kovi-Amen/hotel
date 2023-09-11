@@ -36,6 +36,32 @@
         {{ $errors->first('email') }}
     </div>
     @endif
+    <section id="newsletter">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h3 class="text-white">Inscrivez-vous à la newsletter</h3>
+                    <p class="text-white">Recevez des infos nous concernant s.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <form action="{{ url('newsletters') }}" method="POST">
+                        @csrf
+
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Adresse email</label>
+                            <input id="newsletter1" name="email" type="email" class="newsletter-input" placeholder="Adresse email" required>
+                            <button class="btn btn-dark" type="submit">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
+    </section>
     @include('includes.footer')
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>

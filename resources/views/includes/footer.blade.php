@@ -37,16 +37,7 @@
         </div> -->
 
             <div class="col-md-4 offset-md-1 mb-3">
-                <form action="{{ url('newsletters') }}" method="POST">
-                    @csrf
-                    <h5 class="text-white">Inscrivez-vous à la newsletter</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Adresse email</label>
-                        <input id="newsletter1" name="email" type="email" class="form-control" placeholder="Adresse email" required>
-                        <button class="btn btn-primary" type="submit">S'inscrire</button>
-                    </div>
-                </form>
+
             </div>
         </div>
 
