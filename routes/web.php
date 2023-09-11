@@ -93,5 +93,7 @@ Route::post('formulaire',[FormulaireController::class,'store']);
 Route::group(['prefix' => 'admin'], function () {
     Route::get('inscriptions', [InscriptionController::class,'index']);
     Route::get('inscriptions/{activity_id}',[InscriptionController::class,'index2']);
+    Route::post('inscription/{inscription_id}',[InscriptionController::class,'store']);
+
     Voyager::routes();
 });

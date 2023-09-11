@@ -6,9 +6,12 @@
         <div class="panel-body">
             <div class="table-responsive">
                 @foreach ($activities as $activity)
+                <div>
                     <a href="{{ url('admin/inscriptions/'.$activity->id) }}">
                         {{ $activity->title }}
                     </a>
+                </div>
+
 
                 @endforeach
 

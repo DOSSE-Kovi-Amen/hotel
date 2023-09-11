@@ -20,7 +20,7 @@ class InscriptionController extends Controller
 
     public function index2($activity_id)
     {
-        $activity= Activity::find($activity_id);
+        $activity= Activity::findOrFail($activity_id);
 
         $inscriptions= Inscription::where('activity_id',$activity_id)->get();
         return view('inscriptions', compact('inscriptions', 'activity'));
@@ -33,9 +33,11 @@ class InscriptionController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($inscription_id,Request $request)
     {
-        //
+        Inscription::find($inscription_id)->update(['accepte'=>$request->accepte==true]);
+
+        return back();
     }
 
 

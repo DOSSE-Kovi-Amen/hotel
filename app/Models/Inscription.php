@@ -25,7 +25,8 @@ class Inscription extends Model
         'experience',
         'attentes',
         'contribution',
-        'activity_id'
+        'activity_id',
+        'accepte'
     ];
 
 }

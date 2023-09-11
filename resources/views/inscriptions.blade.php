@@ -13,6 +13,7 @@
                             <th>Prénom</th>
                             <th>Naissance</th>
                             <th>Profession</th>
+                            <th>Accepté</th>
                             <th>Actions</th>
 
                         </tr>
@@ -24,8 +25,34 @@
                             <td>{{ $inscription->prenom }}</td>
                             <td>{{ $inscription->naissance }}</td>
                             <td>{{ $inscription->profession }}</td>
+                            <td>
+                                @if($inscription->accepte==NULL )
+                                <span class="badge badge-warning">En cours</span>
+                                @elseif($inscription->accepte=='true')
+                                <span class="badge badge-success">Oui</span>
+                                @else
+                                <span class="badge badge-danger">Non</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" data-toggle="modal" data-target="#view{{ $inscription->id }}">
+                                    Voir
+                                </a>
+                                <form style="display: inline-block" action="{{ url('admin/inscription/'.$inscription->id) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="accepte" value="true">
+                                    <button type="submit" class="btn btn-success">Accepter</button>
+                                </form>
+                                <form style="display: inline-block" action="{{ url('admin/inscription/'.$inscription->id) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="accepte" value="false">
+                                    <button type="submit" class="btn btn-danger">Refuser</button>
+                                </form>
+
+                            </td>
 
                         </tr>
+                        @include('view-inscription-modal')
                         @endforeach
 
                     </tbody>
