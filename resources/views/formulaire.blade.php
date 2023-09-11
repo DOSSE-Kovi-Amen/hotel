@@ -11,6 +11,7 @@
 
         @endif
     </div>
+    @if ($activity->closed=='non')
 
     <form action="{{ url('formulaire') }}" method="post">
         @csrf
@@ -115,6 +116,20 @@
 
         </div>
     </form>
+    @else
+    <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="card shadow col-12 col-lg-6 my-5 p-5">
+                <div class="text-bold text-danger">
+                    <h3 class="text-danger"> Cette activité a été clôturé
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @endif
 
 </div>
 

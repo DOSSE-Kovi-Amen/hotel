@@ -35,7 +35,7 @@ class InscriptionController extends Controller
 
     public function store($inscription_id,Request $request)
     {
-        Inscription::find($inscription_id)->update(['accepte'=>$request->accepte==true]);
+        Inscription::find($inscription_id)->update(['accepte'=>$request->accepte]);
 
         return back();
     }
