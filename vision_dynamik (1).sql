@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 11 sep. 2023 à 19:15
+-- Généré le : lun. 11 sep. 2023 à 21:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -239,6 +239,7 @@ CREATE TABLE `inscriptions` (
   `prenom` varchar(255) DEFAULT NULL,
   `naissance` timestamp NULL DEFAULT NULL,
   `genre` varchar(255) DEFAULT NULL,
+  `profession` text NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `region` text DEFAULT NULL,
   `prefecture` text DEFAULT NULL,
@@ -247,7 +248,7 @@ CREATE TABLE `inscriptions` (
   `telephone` text DEFAULT NULL,
   `motivation` text DEFAULT NULL,
   `experience` text DEFAULT NULL,
-  `attente` longtext DEFAULT NULL,
+  `attentes` longtext DEFAULT NULL,
   `contribution` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -255,6 +256,13 @@ CREATE TABLE `inscriptions` (
   `accepte` text DEFAULT NULL,
   `activity_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `inscriptions`
+--
+
+INSERT INTO `inscriptions` (`id`, `nom`, `prenom`, `naissance`, `genre`, `profession`, `email`, `region`, `prefecture`, `localite`, `nationalite`, `telephone`, `motivation`, `experience`, `attentes`, `contribution`, `created_at`, `updated_at`, `deleted_at`, `accepte`, `activity_id`) VALUES
+(1, 'dssd', 'gh', '2023-09-13 00:00:00', 'homme', 'fghghg', 'admin@admin.com', 'Kara', 'dffdf', 'rer', 'hghg', '+22896440041', 'zxcvfgdf', 'fgrgr', 'fedr', 'rgrt', '2023-09-11 19:10:00', '2023-09-11 19:10:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1031,7 +1039,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `inscriptions`
 --
 ALTER TABLE `inscriptions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `menus`

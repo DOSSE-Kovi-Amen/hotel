@@ -5,11 +5,12 @@
     <div class="container text-center">
         <h2 class="text-center py-3"><strong style="color: white">Formulaire d'inscription <span style="color: #e64e">({{ $activity->title }})</span></strong></h2>
     </div>
-    <form action="{{ url('/inscription') }}" method="post">
+    <form action="{{ url('formulaire') }}" method="post">
+        @csrf
 
         <div class="d-flex flex-column justify-content-center align-items-center">
-            @csrf
             <div class="card shadow col-12 col-lg-6 my-5 p-5">
+                <input type="hidden" name="activity_id" value="{{ $activity->id }}">
                 <div class="mb-3">
                     <label for="nom" class="form-label mt-3">Nom & Prénom</label>
                     <div class="row">

@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 
 class InscriptionController extends Controller
 {
-
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         $activities= Activity::orderBy('title','asc')->get();

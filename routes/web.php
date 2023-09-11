@@ -1,13 +1,14 @@
 <?php
 
-use App\Models\Inscription;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Newsletter;
+use App\Models\Inscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormulaireController;
 use App\Http\Controllers\InscriptionController;
 
 /*
@@ -87,6 +88,7 @@ Route::post('newsletters', function (Request $request) {
     Newsletter::create(['email' => $request->email]);
     return back();
 });
+Route::post('formulaire',[FormulaireController::class,'store']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('inscriptions', [InscriptionController::class,'index']);
