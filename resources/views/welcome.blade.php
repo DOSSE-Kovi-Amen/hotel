@@ -105,10 +105,11 @@
                     @foreach ($activities as $key=> $activity)
                     <div class="tab-pane fade{{ $key==0? 'show active':'' }}" id="activity{{ $activity->id }}" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                         <h4>{{ $activity->title }}</h4>
+                        <a class="btn btn-main my-2" href="{{ url('inscription/'.$activity->id) }}">S'inscrire à cette activité</a>
+
                         <p>{!! $activity->description !!}</p>
 
                     </div>
-                    <a href="{{ url('/') }}">S'inscrire à cette activité</a>
 
                     @endforeach
                 </div>

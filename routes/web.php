@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Inscription;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Activity;
@@ -28,7 +29,11 @@ Route::get('/', function () {
 
     return view('welcome', compact('last_posts', 'projects','activities'));
 });
-
+Route::get('inscription/{activity_id}', function ($activity_id) {
+    $activity= Activity::find($activity_id);
+    // Display three last posts
+    return view('formulaire', compact('activity'));
+});
 Route::get('about', function () {
     return view('about');
 });
