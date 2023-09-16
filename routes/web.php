@@ -23,7 +23,7 @@ use App\Http\Controllers\InscriptionController;
 */
 
 Route::get('/', function () {
-    $activities= Activity::all();
+    $activities= Activity::where('closed',0)->get();
     // Display three last posts
     $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
     $projects = Project::orderBy('updated_at', 'desc')->get();

@@ -103,7 +103,6 @@
             <div class="col-lg-8">
                 <div class="tab-content" id="v-pills-tabContent">
                     @foreach ($activities as $key=> $activity)
-                    @if ($activity->closed=='non')
                     <div class="tab-pane fade{{ $key==0? 'show active':'' }}" id="activity{{ $activity->id }}" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                         <h4>{{ $activity->title }}</h4>
                         <a class="btn btn-main my-2" target="_blank" href="{{ url('inscription/'.$activity->id) }}">S'inscrire à cette activité</a>
@@ -111,9 +110,6 @@
                         <p>{!! $activity->description !!}</p>
 
                     </div>
-                    @endif
-
-
                     @endforeach
                 </div>
 
@@ -125,10 +121,7 @@
                     <div id="more" class="list-group">
                         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             @foreach ($activities as $key=> $activity)
-                            @if ($activity->closed=='non')
-
                             <a class="nav-link {{$key==0? 'active':'' }}" data-bs-toggle="pill" data-bs-target="#activity{{ $activity->id }}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="{{$key==0? true:false }}">{{ $activity->title }}</a>
-                            @endif
                             @endforeach
                         </div>
                     </div>

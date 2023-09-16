@@ -11,7 +11,7 @@
 
         @endif
     </div>
-    @if ($activity->closed=='non')
+    @if ($activity->closed==0)
 
     <form action="{{ url('formulaire') }}" method="post">
         @csrf
