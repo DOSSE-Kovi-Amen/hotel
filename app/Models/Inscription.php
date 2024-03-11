@@ -19,6 +19,7 @@ class Inscription extends Model
         'email',
         'telephone',
         'region',
+        'residenced',
         'prefecture',
         'localite',
         'motivation',
@@ -26,7 +27,8 @@ class Inscription extends Model
         'attentes',
         'contribution',
         'activity_id',
-        'accepte'
+        'accepte',
+        'cv'
     ];
 
 }

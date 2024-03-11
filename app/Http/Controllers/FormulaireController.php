@@ -36,6 +36,14 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
+
+            $cvPath = $request->file('cv')->storeAs(
+                'cvs',
+                $request->nom.'_'.$request->prenom.time().'_cv.pdf', // Renommer le fichier
+                'public'
+            );
+
+
         Inscription::create([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
@@ -45,6 +53,7 @@ class FormulaireController extends Controller
             'naissance' => $request->input('naissance'),
             'genre' => $request->input('genre'),
             'telephone' => $request->input('telephone'),
+            'residence' => $request->input('residence'),
             'region' => $request->input('region'),
             'prefecture' => $request->input('prefecture'),
             'localite' => $request->input('localite'),
@@ -53,6 +62,7 @@ class FormulaireController extends Controller
             'attentes' => $request->input('attentes'),
             'contribution' => $request->input('contribution'),
             'activity_id' => $request->input('activity_id'),
+            'cv'=>$cvPath
         ]);
         // dd($request);
 

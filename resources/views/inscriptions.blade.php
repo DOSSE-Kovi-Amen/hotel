@@ -13,6 +13,7 @@
                             <th>Prénom</th>
                             <th>Naissance</th>
                             <th>Profession</th>
+                            <th>CV</th>
                             <th>Accepté</th>
                             <th>Actions</th>
 
@@ -25,6 +26,9 @@
                             <td>{{ $inscription->prenom }}</td>
                             <td>{{ $inscription->naissance }}</td>
                             <td>{{ $inscription->profession }}</td>
+                            <td> @if ($inscription->cv)
+                                <a href="{{ asset(Voyager::image($inscription->cv)) }}" download="{{ $inscription->nom.'_'.$inscription->prenom.'_cv.pdf' }}">Télécharger CV</a>
+                                @endif</td>
                             <td>
                                 @if($inscription->accepte==NULL )
                                 <span class="badge badge-warning">En cours</span>

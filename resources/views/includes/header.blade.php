@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-auto">
-                <a href="mailto:"> <i class='bx bxs-envelope'></i>
-                    {{ setting('site.email') }}</a>
-                <a href="tel:"> <i class='bx bxs-phone-call'></i>
-                    {{ setting('site.contact') }}</a>
+                <a href="mailto:contact@visiondynamik.org"> <i class='bx bxs-envelope'></i>
+                    contact@visiondynamik.org</a>
+                <a href="tel:90 98 84 50"> <i class='bx bxs-phone-call'></i>
+                    90 98 84 50</a>
             </div>
             <div class="col-auto social-links">
                 <a target="_blank" href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>

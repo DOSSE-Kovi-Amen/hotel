@@ -17,7 +17,7 @@
     <div class="container px-4">
         <div class="row align-items-center">
             <div class="col-12 col-sm-8 col-lg-6">
-                <img style="object-fit: cover; height:500px;width:100%" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
+                <img style="object-fit: cover; height:500px;width:100%" src="{{ asset(Voyager::image(setting('site.about_image'))) }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
                 <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>

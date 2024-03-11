@@ -21,7 +21,7 @@
                 <img style="object-fit: cover; height:400px;width:100%" src="{{ asset('images/cntct.jpg') }}" alt="">
             </div>
             <div class="col-lg-6 offset-lg-1">
-                <form>
+                {{-- <form>
                     <div class="mb-3">
                         <small>Nom</small>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,7 +35,9 @@
                         <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Envoyer</button>
-                </form>
+                </form> --}}
+                <a class="btn btn-dark" href="mailto:contact@visiondynamik.org"> <i class='bx bxs-envelope'></i>
+                    contact@visiondynamik.org</a>
             </div>
         </div>
     </div>

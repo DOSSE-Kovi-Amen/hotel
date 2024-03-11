@@ -54,7 +54,7 @@
             </div>
             <div class="bg-text text-center">
                 <div class="container">
-                    <h1 class="banner-title text-white">VISION DYNAMIK POUR LA JEUNESSE</h1>
+                    <h1 class="banner-title text-white">EVEILLER LA CONSCIENCE CITOYENNE</h1>
                     {{-- <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p> --}}
                 </div>
             </div>
@@ -77,7 +77,7 @@
         <div class="row align-items-center">
 
             <div class="col-12 col-sm-8 col-lg-6">
-                <img data-aos="fade-right" src="{{ asset('images/about.png') }}" class="mx-lg-auto img-fluid" alt="about">
+                <img data-aos="fade-right" src="{{ asset(Voyager::image(setting('site.about_image'))) }}" class="mx-lg-auto img-fluid" alt="about">
             </div>
             <div class="col-lg-6 mb-3">
                 <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>

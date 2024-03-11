@@ -1,7 +1,8 @@
 @extends('layouts.site')
 
 @section('content')
-<div style="height:100%;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
+<div style="height:100%;width:100%; background-image: url({{ asset(Voyager::image(setting('site.form_image'))) }}); background-size:cover; background-repeat:no-repeat">
+
     <div class="container text-center">
         <h2 class="text-center py-3"><strong style="color: white">Formulaire d'inscription <span style="color: #e64e">({{ $activity->title }})</span></strong></h2>
         @if (session()->has('message'))
@@ -13,7 +14,7 @@
     </div>
     @if ($activity->closed==0)
 
-    <form action="{{ url('formulaire') }}" method="post">
+    <form action="{{ url('formulaire') }}" method="post" enctype="multipart/form-data">
         @csrf
 
 
@@ -73,6 +74,8 @@
 
                         </div>
                     </div>
+                    <label for="residence" class="form-label mt-3">Résidence</label>
+                    <input type="text" name="residence" required class="form-control" id="residence" placeholder="Résidence">
 
                     <label for="email" class="form-label mt-3">Région</label>
                     <div class="form-group">
@@ -91,23 +94,33 @@
                 <input type="text" name="prefecture" required class="form-control" id="prefecture" placeholder="Préfecture">
 
                 <label for="localite" class="form-label mt-3">Localité</label>
-                <input type="text" name="localite" required class="form-control" id="localite" placeholder="Email">
-                <div class="mb-3">
-                    <label for="motivation" class="form-label">Motivation</label>
+                <input type="text" name="localite" required class="form-control" id="localite" placeholder="Ex:Agoè">
+                <div class="mb-3 mt-3">
+                    <label for="motivation" class="form-label">Motivations</label>
+                    <p> Dites-nous vos motivations à partciper à l’Académie (200 caractères)
+                    </p>
                     <textarea required class="form-control" name="motivation" id="motivation" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="experience" class="form-label">Expérience</label>
+                    <label for="experience" class="form-label">Expériences</label>
+                    <p>Partagez avec nous vos expériences d’engagement communautaire (200 caractères)</p>
                     <textarea required class="form-control" name="experience" id="experience" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="attentes" class="form-label">Vos attentes</label>
+                    <p>Qu’attendez-vous de l’Académie (200 caractères)</p>
                     <textarea required class="form-control" name="attentes" id="attentes" rows="3"></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="contribution" class="form-label">Contribution</label>
+                    <p>Au sortir de l’Académie, quelle sera votre contribution à la communauté ? (200 caractères)</p>
                     <textarea required class="form-control" name="contribution" id="contribution" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="cv">Télécharger le CV (PDF uniquement, 2mo max):</label>
+                    <input type="file" name="cv" accept=".pdf" required>
+
                 </div>
                 <button type="submit" class="btn btn-success"> Envoyer</button>
 

@@ -13,6 +13,9 @@
                 <p>Naissance : {{ $inscription->naissance }}</p>
                 <p>Profession : {{ $inscription->profession }}</p>
                 <p>Genre : {{ $inscription->genre }}</p>
+                <p>Tel : {{ $inscription->telephone }}</p>
+                <p>Email : {{ $inscription->email }}</p>
+                <p>Résidence : {{ $inscription->residence }}</p>
                 <p>Région : {{ $inscription->region }}</p>
                 <p>Préfecture : {{ $inscription->prefecture }}</p>
                 <p>Localité : {{ $inscription->localite }}</p>
