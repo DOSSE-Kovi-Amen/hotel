@@ -122,7 +122,7 @@
                     <input type="file" name="cv" accept=".pdf" required>
 
                 </div>
-                <button type="submit" class="btn btn-success"> Envoyer</button>
+                <button type="submit" class="btn btn-dark"> Envoyer</button>
 
             </div>
 
