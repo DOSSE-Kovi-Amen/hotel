@@ -4,6 +4,9 @@
 <div class="page-content browse container-fluid">
     <h2>{{ $activity->title }}</h2>
     <div class="panel panel-bordered">
+        <a class="btn btn-success" href="{{ url('admin/inscription/excel') }}">
+            Exporter en excel
+        </a>
         <div class="panel-body">
             <div class="table-responsive">
                 <table id="dataTable" class="table table-hover">
@@ -32,7 +35,7 @@
                             <td>
                                 @if($inscription->accepte==NULL )
                                 <span class="badge badge-warning">En cours</span>
-                                @elseif($inscription->accepte=='true')
+                                @elseif($inscription->accepte=='oui'|| $inscription->accepte=='true')
                                 <span class="badge badge-success">Oui</span>
                                 @else
                                 <span class="badge badge-danger">Non</span>
@@ -40,23 +43,30 @@
                             </td>
                             <td>
                                 <a class="btn btn-warning" data-toggle="modal" data-target="#view{{ $inscription->id }}">
-                                    Voir
+                                    <i class="voyager-eye"></i>
                                 </a>
                                 <form style="display: inline-block" action="{{ url('admin/inscription/'.$inscription->id) }}" method="post">
                                     @csrf
-                                    <input type="hidden" name="accepte" value="true">
-                                    <button type="submit" class="btn btn-success">Accepter</button>
+                                    <input type="hidden" name="accepte" value="oui">
+                                    <button type="submit" class="btn btn-success"><i class="voyager-check"></i></button>
                                 </form>
                                 <form style="display: inline-block" action="{{ url('admin/inscription/'.$inscription->id) }}" method="post">
                                     @csrf
-                                    <input type="hidden" name="accepte" value="false">
-                                    <button type="submit" class="btn btn-danger">Refuser</button>
+                                    <input type="hidden" name="accepte" value="non">
+                                    <button type="submit" class="btn btn-danger"><i class="voyager-x"></i></button>
                                 </form>
+                                <a class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $inscription->id }}">
+                                    <i class="voyager-trash"></i>
+                                </a>
+                                <a class="btn btn-info" href="{{ url('admin/inscription/print/'.$inscription->id.'/'.$activity->id) }}">
+                                    Imprimer
+                                </a>
 
                             </td>
 
                         </tr>
                         @include('view-inscription-modal')
+                        @include('delete-inscription-modal')
                         @endforeach
 
                     </tbody>

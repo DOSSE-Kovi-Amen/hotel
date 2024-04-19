@@ -94,6 +94,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('inscriptions', [InscriptionController::class,'index']);
     Route::get('inscriptions/{activity_id}',[InscriptionController::class,'index2']);
     Route::post('inscription/{inscription_id}',[InscriptionController::class,'store']);
+    Route::post('inscription/delete/{inscription_id}',[InscriptionController::class,'destroy']);
+    Route::get('inscription/print/{inscription_id}/{activity_id}',[InscriptionController::class,'print']);
+    Route::get('inscription/excel',[InscriptionController::class,'export']);
 
     Voyager::routes();
 });
+Route::get('login', function(){
+    return redirect('admin/login');
+})->name('login');

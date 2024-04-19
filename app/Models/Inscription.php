@@ -19,7 +19,7 @@ class Inscription extends Model
         'email',
         'telephone',
         'region',
-        'residenced',
+        'residence',
         'prefecture',
         'localite',
         'motivation',
