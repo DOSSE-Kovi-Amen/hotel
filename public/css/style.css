@@ -30,21 +30,30 @@ a {
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Remplacez 'Roboto' par le nom de la police de votre choix */
+    /* font-family: 'Roboto', sans-serif; Remplacez 'Roboto' par le nom de la police de votre choix */
     font-size: 16px; /* Taille de police par défaut pour le texte du corps */
     line-height: 1.5;
     color: var(--body);
     line-height: 1.8;
 
 }
- h2, h3 {
+
+/* Appliquer Playfair Display pour les titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Appliquer Lato pour les autres textes */
+body, p, ul, ol, li, a {
+    font-family: 'Lato', sans-serif;
+}
+
+
+ /* h2, h3 {
     font-family: 'Pacifico', cursive; /* Utilisation de la police Pacifico */
     /* Vos autres styles de titres ici */
-}
-h1 {
-    font-family: 'Roboto', sans-serif; /* Utilisation de la police Pacifico */
-    /* Vos autres styles de titres ici */
-}
+/* } */ */
+
 section {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -128,7 +137,7 @@ a {
     position: absolute;
     width: 100%;
     height: 90vh;
-    background: linear-gradient(#00000069, #0000004d);
+    background: linear-gradient(#00000028, #00000021);
     top: 0;
 }
 
@@ -143,6 +152,29 @@ a {
     font-size: 2.5rem;
 }
 
+
+.content-overlay {
+    position: relative;
+    z-index: 1; /* S'assure que le texte est au-dessus de la vidéo */
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .content-overlay h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .content-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Option de survol ou effets de texte */
+  .content-overlay h2, .content-overlay p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Ombre du texte pour améliorer la lisibilité */
+  }
 
 .text-shadow-1 {
     text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25);
@@ -242,12 +274,29 @@ a {
 }
 
 .footer {
-    background-color: #000000;
-    /* 151712 */
-}
+    background: linear-gradient(45deg, #ffffff, #ffffff); /* Dégradé vert-noir */
+    color: black;
+    padding: 40px 20px;
+  }
+
+  .footer h5 {
+    color: #f49314; /* Or */
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .footer a {
+    color: black; /* Or */
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: #a6836d; /* Orange clair */
+    text-decoration: underline;
+  }
 
 .navbar-back {
-    background-color: #ea7035;
+    background-color: #ffffff;
 }
 
 /* Style de la galerie */
@@ -321,14 +370,14 @@ a {
 
 
 .btn-main {
-    background-color: #ea7035;
+    background-color: #f49314;
     color: white
 }
 
 .btn-main:hover,
 .btn-main:active {
-    background-color: #ac572d;
-    color: #000000;
+    background-color: #a6836d;
+    color: #ffffff;
 }
 
 .carousel-control-next,
@@ -346,7 +395,7 @@ a {
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: #ea7035;
+    background-color: #1a4922 ;
 }
 
 /* Media query pour les écrans de téléphone */
@@ -368,40 +417,6 @@ a {
     }
 }
 
-#about {
-    background-color: #171512
-}
-
-.about-title {
-    color: #ea7035;
-}
-
-.about-title::before,
-.about-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100px;
-    height: 2px;
-    background-color: #ea7035;
-}
-
-.about-title::before {
-    bottom: -10px;
-}
-
-.about-title::after {
-    bottom: -5px;
-    width: 200px;
-
-}
-
-#about p::first-letter {
-    color: #ea7035;
-    /* Change the color to #ea7035 */
-    font-size: 200%;
-    /* Increase the font size to 150% of the normal size */
-}
 .page-title {
     position: relative;
     font-size: 40px;
@@ -416,7 +431,7 @@ a {
     left: 0;
     width: 80px;
     height: 2px;
-    background-color: #ea7035;
+    background-color: #f49314 ;
 }
 
 .page-title::before {
@@ -432,7 +447,7 @@ a {
 .section-title {
     position: relative;
     font-size: 30px;
-    color: #000000;
+    color: #1a4922;
     display: inline-block;
 }
 
@@ -443,7 +458,7 @@ a {
     left: 0;
     width: 80px;
     height: 2px;
-    background-color: #ea7035;
+    background-color: #1a4922;
 }
 
 .section-title::before {
@@ -457,32 +472,199 @@ a {
 }
 
 .section-subtile {
-    color: #ea7035;
+    color: #a6836d ;
 }
 
-#newsletter {
-    background-color: #ea7035;
-}
+.newsletter-section {
+    background: linear-gradient(180deg, #a6836d, #ffffff); /* Dégradé doux vers le blanc */
+    color: #1a4922; /* Texte vert foncé */
+    padding: 40px 20px;
+  }
 
-.newsletter-input {
-    background-color: #ea7035;
-    color: white;
-    width: 100%;
-    border: 2px solid white;
-    height: 50px;
-    outline: none;
+  .newsletter-section h2 {
+    color: #1a4922; /* Vert foncé */
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .newsletter-section p {
+    color: #1a4922; /* Vert foncé */
+    line-height: 1.8;
+  }
+
+  .newsletter-section .form-control {
+    border: 2px solid #f49314; /* Bordure or */
+    border-radius: 5px;
     padding: 10px;
+  }
 
-}
-
-.newsletter-input::placeholder{
-    color: #000000;
-}
-.newsletter-btn{
-    width: 200px;
-    padding: 5px;
-    outline: none;
+  .newsletter-section .btn-primary {
+    background-color: #f49314; /* Or */
+    color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .newsletter-section .btn-primary:hover {
+    background-color: #1a4922; /* Vert foncé */
+    color: white;
+  }
+
+
+
+.about-section {
+    background-color: #1a4922; /* Vert */
+    color: white;
+    padding: 60px 0;
+  }
+
+  .about-section h2 {
+    color: #f49314; /* Or */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .about-section p {
     color: #ffffff;
-    background-color: #000000;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .about-section .btn-custom {
+    background-color: #f49314; /* Or */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .about-section .btn-custom:hover {
+    background-color: #a6836d; /* Orange clair */
+    color: white;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Permet à toutes les cartes d'occuper la même hauteur */
+}
+
+.card {
+    min-height: 350px; /* Fixez une hauteur minimale si nécessaire */
+}
+
+
+/* Loader */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Centrer le logo */
+.loader-content {
+    text-align: center;
+    position: relative;
+    width: 200px;
+}
+
+/* Logo */
+.loader-logo {
+    width: 150px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Barre de chargement */
+.loader-bar {
+    width: 100%;
+    height: 4px;
+    background: #2D6A4F;
+    position: absolute;
+    bottom: -20px;
+    animation: loading 2s linear forwards;
+}
+
+/* Animation de la barre de chargement */
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* slides swiper */
+/* Conteneur du Swiper */
+.swiper-container {
+    position: relative;
+    overflow: visible; /* Permet aux flèches de sortir du cadre */
+}
+
+/* Flèches personnalisées */
+.custom-prev,
+.custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;  /* Taille des flèches */
+    color: #1a4922;  /* Couleur des flèches */
+    cursor: pointer;
+    z-index: 10;  /* Pour s'assurer qu'elles soient visibles */
+}
+
+/* Flèche précédente (à gauche) */
+.custom-prev {
+    left: -30px;  /* Décale la flèche vers la gauche */
+}
+
+/* Flèche suivante (à droite) */
+.custom-next {
+    right: -30px;  /* Décale la flèche vers la droite */
+}
+
+/* Animation de transition pour les flèches */
+.custom-prev, .custom-next {
+    transition: transform 0.3s ease;
+}
+
+/* Effet de survol */
+.custom-prev:hover, .custom-next:hover {
+    transform: scale(1.2); /* Agrandir l'icône lors du survol */
+}
+.swiper-slide{
+
 }

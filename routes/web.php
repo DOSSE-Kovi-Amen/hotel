@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Newsletter;
 use App\Models\Inscription;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulaireController;
@@ -23,18 +24,13 @@ use App\Http\Controllers\InscriptionController;
 */
 
 Route::get('/', function () {
-    $activities= Activity::where('closed',0)->get();
     // Display three last posts
     $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
-    $projects = Project::orderBy('updated_at', 'desc')->get();
+    $rooms = Room::orderBy('updated_at', 'desc')->get();
 
-    return view('welcome', compact('last_posts', 'projects','activities'));
+    return view('welcome', compact('last_posts', 'rooms'));
 });
-Route::get('inscription/{activity_id}', function ($activity_id) {
-    $activity= Activity::findOrFail($activity_id);
-    // Display three last posts
-    return view('formulaire', compact('activity'));
-});
+
 Route::get('about', function () {
     return view('about');
 });
@@ -75,11 +71,15 @@ Route::get('blog/search', function (Request $request) {
     return view('blog', compact('posts', 'categories'));
 });
 
-Route::get('projects', function () {
-    $projects = Project::orderBy('updated_at', 'desc')->paginate(60);
-    return view('projects', compact('projects'));
+Route::get('rooms', function () {
+    $rooms = Room::orderBy('updated_at', 'desc')->paginate(60);
+    return view('rooms', compact('rooms'));
 });
 
+Route::get('services', function () {
+    // $rooms = Room::orderBy('updated_at', 'desc')->paginate(60);
+    return view('services');
+});
 Route::post('newsletters', function (Request $request) {
     $request->validate([
         'email' => 'required|email|unique:newsletters', // Utilisez la règle 'email' pour valider le champ email.
@@ -88,16 +88,9 @@ Route::post('newsletters', function (Request $request) {
     Newsletter::create(['email' => $request->email]);
     return back();
 });
-Route::post('formulaire',[FormulaireController::class,'store']);
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('inscriptions', [InscriptionController::class,'index']);
-    Route::get('inscriptions/{activity_id}',[InscriptionController::class,'index2']);
-    Route::post('inscription/{inscription_id}',[InscriptionController::class,'store']);
-    Route::post('inscription/delete/{inscription_id}',[InscriptionController::class,'destroy']);
-    Route::get('inscription/print/{inscription_id}/{activity_id}',[InscriptionController::class,'print']);
-    Route::get('inscription/excel',[InscriptionController::class,'export']);
-
+    // routes for voyager
     Voyager::routes();
 });
 Route::get('login', function(){

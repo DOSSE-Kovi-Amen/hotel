@@ -1,9 +1,9 @@
 @extends('layouts.site')
 
 @section('content')
-<div id="top_banner" style="background-image: url({{ asset('images/bg_banner1.jpg') }}); background-size:cover;
+<div id="top_banner" style="background-image: url({{ asset('images/hcp1.jpg') }}); background-size:cover;
          background-position:center center;">
-    <div class="d-flex flex-column justify-content-center align-items-center" style="height:450px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height:300px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.185));">
         <h1 class="text-center page-title text-white" data-aos="fade-left"><strong>A PROPOS</strong></h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -13,21 +13,28 @@
         </nav>
     </div>
 </div>
-<section id="about">
-    <div class="container px-4">
-        <div class="row align-items-center">
-            <div class="col-12 col-sm-8 col-lg-6">
-                <img style="object-fit: cover; height:500px;width:100%" src="{{ asset(Voyager::image(setting('site.about_image'))) }}" class="mx-lg-auto img-fluid" alt="about">
-            </div>
-            <div class="col-lg-6 mb-3">
-                <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
-                <p class="text-white">Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et actions.
-                    La méthode de Vision Dynamik se résume à l’inspiration, l’introspection et le passage à l’action, permettant de passer de l’envie à l’idée et de l’idée à l’action.</p>
-            </div>
-
+<section class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Texte -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2>À propos de nous</h2>
+          <p>
+            L’Hôtel Chic Palace est un joyau situé à l’entrée de la ville de Kpalimé. Il associe élégance, douceur et luxe pour offrir un cadre agréable et reposant.   Avec une équipe dynamique à votre service, découvrez autrement l’hôtelerie à Kpalimé.  Soyez chez nous comme chez vous !
+        </p>
+          {{-- <p class="mb-4">
+            <span class="fw-bold" style="color: #f49314;">Notre mission :</span> fournir des produits et services de qualité, tout en mettant l'accent sur la satisfaction client et l'impact positif sur la société.
+          </p> --}}
+          <a href="#" class="btn btn-custom">En savoir plus</a>
         </div>
+
+        <!-- Image -->
+        <div class="col-lg-6 about-image">
+          <img src="images/dom_hebergement.jpg" alt="À propos de nous">
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
 {{-- <div class="container">
 

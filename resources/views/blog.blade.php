@@ -60,7 +60,7 @@ background-position:center center;">
         <h1 class="text-center page-title text-white mb-3"><strong>Blog</strong></h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb text-white">
-                <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Accueil</a></li>
                 <li class="breadcrumb-item text-white active" aria-current="page">Blog</li>
             </ol>
         </nav>

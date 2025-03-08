@@ -3,58 +3,40 @@
 @section('content')
 {{-- Banner Slides --}}
 <div id="banner-slide">
-
+    @php
+    $banners=App\Models\SectionMedia::find(3);
+    @endphp
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            @foreach (json_decode($banners->medias) as $key=> $banner)
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $key }}" class="{{$key==0? 'active' :'' }}" aria-current="true" aria-label="Slide {{ $key }}"></button>
+            @endforeach
+            {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> --}}
 
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active banner">
-                <img src="{{ asset('images/ban0.jpeg') }}" class="d-block w-100" alt="...">
 
-
+            @foreach (json_decode($banners->medias) as $key=> $banner)
+            @if ($key==0)
+            <div class="carousel-item banner active">
+                <img src="{{ asset(Voyager::image($banner)) }}" class="d-block w-100" alt="...">
                 <div class="bg-overlay"></div>
             </div>
+            @else
             <div class="carousel-item banner">
-                <img src="{{ asset('images/ban2.jpeg') }}" class="d-block w-100" alt="...">
-                {{-- <div class="bg-text text-center">
-                    <div class="container">
-                        <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
-                        <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p>
-                    </div>
-                </div> --}}
+                <img src="{{ asset(Voyager::image($banner)) }}" class="d-block w-100" alt="...">
                 <div class="bg-overlay"></div>
-
             </div>
-            <div class="carousel-item banner">
-                <img src="{{ asset('images/ban3.jpeg') }}" class="d-block w-100" alt="...">
-                {{-- <div class="bg-text text-center">
-                    <div class="container">
-                        <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
-                        <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p>
-                    </div>
-                </div> --}}
-                <div class="bg-overlay"></div>
+            @endif
 
-            </div>
-            <div class="carousel-item banner">
-                <img src="{{ asset('images/ban4.jpeg') }}" class="d-block w-100" alt="...">
-                {{-- <div class="bg-text text-right">
-                    <div class="container">
-                        <h1 class="banner-title text-white">Le BON SAMARITAIN</h1>
-                        <p class="text-white"></p>
-                    </div>
-                </div> --}}
-                <div class="bg-overlay"></div>
+            @endforeach
 
-            </div>
+
             <div class="bg-text text-center">
-                <div class="container">
-                    <h1 class="banner-title text-white">EVEILLER LA CONSCIENCE CITOYENNE</h1>
+                <div class="container content-overlay">
+                    <h2 class="banner-title text-white">A l’’Hôtel Chic Palace, c’est le confort, la sérénité et la sécurité !</h2>
                     {{-- <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p> --}}
                 </div>
             </div>
@@ -69,95 +51,59 @@
         </button>
     </div>
 </div>
-{{-- @include('includes.services') --}}
+@include('includes.services')
 
 {{-- About --}}
-<section id="about">
-    <div class="container px-4">
+
+<section class="about-section">
+    <div class="container">
         <div class="row align-items-center">
-
-            <div class="col-12 col-sm-8 col-lg-6">
-                <img data-aos="fade-right" src="{{ asset(Voyager::image(setting('site.about_image'))) }}" class="mx-lg-auto img-fluid" alt="about">
-            </div>
-            <div class="col-lg-6 mb-3">
+            <!-- Texte -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
                 <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
-                <p class="text-white">
-                    Vision Dynamik est une association qui, à travers ses activités inspire, forme et accompagne les jeunes ou tout autre groupe de personnes qui souhaitent avoir un impact positif sur leurs communautés par leurs leaderships et...
-
+                <p>
+                    L’Hôtel Chic Palace est un joyau situé à l’entrée de la ville de Kpalimé. Il associe élégance, douceur et luxe pour offrir un cadre agréable et reposant. Avec une équipe dynamique à votre service, découvrez autrement l’hôtelerie à Kpalimé. Soyez chez nous comme chez vous !
                 </p>
-
                 <a href="{{ url('about') }}" class="btn btn-main">En savoir plus</a>
             </div>
-        </div>
-    </div>
-</section>
-{{-- Services --}}
-<section id="activity">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-title  mb-5 ">Nos activités</h2>
 
-        </div>
-
-        <div class="row p-5">
-            <div class="col-lg-8">
-                <div class="tab-content" id="v-pills-tabContent">
-                    @foreach ($activities as $key=> $activity)
-                    <div class="tab-pane fade{{ $key==0? 'show active':'' }}" id="activity{{ $activity->id }}" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
-                        <h4>{{ $activity->title }}</h4>
-                        <a class="btn btn-main my-2" target="_blank" href="{{ url('inscription/'.$activity->id) }}">S'inscrire à cette activité</a>
-
-                        <p>{!! $activity->description !!}</p>
-
-                    </div>
-                    @endforeach
-                </div>
-
-
-            </div>
-            <div class="col-lg-4">
-                <div class="position-sticky" style="top: 7rem;">
-
-                    <div id="more" class="list-group">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            @foreach ($activities as $key=> $activity)
-                            <a class="nav-link {{$key==0? 'active':'' }}" data-bs-toggle="pill" data-bs-target="#activity{{ $activity->id }}" type="button" role="tab" aria-controls="v-pills-home" aria-selected="{{$key==0? true:false }}">{{ $activity->title }}</a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+            <!-- Image -->
+            <div class="col-lg-6 about-image">
+                <img data-aos="fade-right" src="{{ asset('images/dom_hebergement.jpg') }}" alt="À propos de nous">
             </div>
         </div>
     </div>
-
 </section>
 
 {{-- Projets --}}
 <section id="projects">
     <div class="container">
-        <h2 class="section-title text-left mb-5"><strong>Nos Projets</strong></h2>
+        <h2 class="section-title text-left mb-5"><strong>Nos chambres</strong></h2>
 
         <div class="owl-theme owl-carousel" id="projects-slider">
-            @foreach ($projects as $project)
+            @foreach ($rooms as $room)
             <div class="project">
-                <a class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#project{{ $project->id }}">
+                <a class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#room{{ $room->id }}">
                     <div class="overlay"></div>
-                    <img class="project-img" src="{{ asset(Voyager::image($project->image)) }}" alt="">
+                    @php
+                    $images = json_decode($room->images); // Décoder le JSON en tableau PHP
+                    $firstImage = $images[0] ?? null; // Récupérer la première image (ou null si vide)
+                    @endphp
+
+                    @if($firstImage)
+                    <img class="project-img" src="{{ asset(Voyager::image($firstImage)) }}" alt="Image principale">
+                    @else
+                    <p>Aucune image disponible</p>
+                    @endif
                     <div class="content d-flex justify-content-between px-4">
                         <div>
-                            <h4 class="text-white">{{ $project->title }}</h4 class="text-white">
-                            @if ($project->status == 'coming')
-                            <span class="badge rounded-pill text-bg-info fs-6">A venir</span>
-                            @elseif($project->status == 'closed')
-                            <span class="badge rounded-pill text-bg-dark fs-6">Terminé</span>
-                            @else
-                            <span class="badge rounded-pill text-bg-success fs-6">En cours</span>
-                            @endif
+                            <h4 class="text-white">{{ $room->title }}</h4 class="text-white">
+                            <span class="badge rounded-pill text-bg-info fs-6">{{ $room->price }} F CFA</span>
+
 
                         </div>
                         <div style="align-self: flex-end">
-                            <a style=" position: relative; bottom: 0;" class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#project{{ $project->id }}">En savoir
-                                plus</a>
+                            <a class="btn btn-success" style=" position: relative; bottom: 0;" class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#room{{ $room->id }}">Réserver</a>
 
                         </div>
 
@@ -166,17 +112,17 @@
             </div>
             @endforeach
         </div>
-        @foreach ($projects as $project)
-        @include('includes.modals.project')
+        @foreach ($rooms as $room)
+        @include('includes.modals.room')
         @endforeach
-        <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('projects') }}">Voir tout</a>
+        <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('rooms') }}">Voir tout</a>
         </p>
     </div>
 </section>
 
 
 <!--Section: Content-->
-<section id="blog" style="background: rgba(216, 216, 216, 0.226)">
+{{-- <section id="blog" style="background: rgba(216, 216, 216, 0.226)">
     <div class="container text-center">
         <h3 class="section-subtile mb-1">BLOG</h3>
         <h2 class="section-title  mb-5 ">Derniers Posts</h2>
@@ -209,30 +155,12 @@
         <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('blog') }}">Voir tout</a>
         </p>
     </div>
-</section>
-<!-- Galery -->
-<section class="text-center" style="background-color: #eeeeee">
-    {{-- <h3 class="section-subtile mb-1">Partenaires</h3> --}}
-    <h2 class="section-title mb-5" data-aos="fade-left">Partenaires</h2>
-    <div class="photo-partner">
-        @php
-        $partners=App\Models\SectionMedia::find(2);
-        @endphp
-        @foreach (json_decode($partners->medias) as $partner)
-        <div class="partner-item">
-            <img src="{{ asset(Voyager::image($partner)) }}" alt="Photo 1" class="galery-img">
-        </div>
-        @endforeach
+</section> --}}
 
-    </div>
-
-
-    <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
-</section>
 <!--Section: Content-->
 
-<section class="text-center" style="background-color: #171512">
-    <h2 class="section-title mb-5 text-center text-white" data-aos="fade-left">Galerie d'images</h2>
+<section class="text-center" style="background-color: #a6836d ">
+    {{-- <h2 class="section-title mb-5 text-center text-white" data-aos="fade-left">Galerie d'images</h2> --}}
 
     <div class="photo-gallery">
         @php
@@ -254,4 +182,20 @@
 
     <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
 </section>
+
+<!-- Galery -->
+{{-- <section class="text-center" style="background-color: #eeeeee">
+    <h2 class="section-title mb-5" data-aos="fade-left">Partenaires</h2>
+    <div class="photo-partner">
+        @php
+        $partners=App\Models\SectionMedia::find(2);
+        @endphp
+        @foreach (json_decode($partners->medias) as $partner)
+        <div class="partner-item">
+            <img src="{{ asset(Voyager::image($partner)) }}" alt="Photo 1" class="galery-img">
+        </div>
+        @endforeach
+
+    </div>
+</section> --}}
 @endsection

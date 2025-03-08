@@ -10,6 +10,9 @@
     <meta name="description" content="{{ setting('site.description') }}">
 
     <title>{{ setting('site.title') }}</title>
+    <!-- Ajouter Playfair Display pour les titres -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
@@ -17,50 +20,81 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3
+                , spaceBetween: 30
+                , loop: true
+                , autoplay: {
+                    delay: 3000
+                    , disableOnInteraction: false
+                , }
+                , pagination: {
+                    el: ".swiper-pagination"
+                    , clickable: true
+                , }
+                , navigation: {
+                    nextEl: ".swiper-button-next"
+                    , prevEl: ".swiper-button-prev"
+                , }
+                , breakpoints: {
+                    0: {
+                        slidesPerView: 1
+                    }
+                    , 768: {
+                        slidesPerView: 2
+                    }
+                    , 1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        });
+
+    </script>
 
 </head>
 
 <body>
+    <!-- Loader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="{{ asset('images/logo2.png') }}" alt="Logo" class="loader-logo">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
     @include('includes.header')
 
     @yield('content')
-
-
-
-
-
-
     {{-- @include('includes.partner') --}}
     @if ($errors->has('email'))
     <div class="alert alert-danger">
         {{ $errors->first('email') }}
     </div>
     @endif
-    <section id="newsletter">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <h3 class="text-white">Inscrivez-vous à la newsletter</h3>
-                    <p class="text-white">Recevez des infos nous concernant sur nos activité.</p>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <form action="{{ url('newsletters') }}" method="POST">
+    <section class="newsletter-section">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
+                    <p class="mb-4">
+                        Recevez les dernières nouvelles, mises à jour et offres exclusives directement dans votre boîte mail.
+                    </p>
+                    <form action="{{ url('newsletters') }}" method="POST" class="d-flex flex-column flex-md-row justify-content-center align-items-center">
                         @csrf
-
-                        <div class="d-flex flex-column flex-sm-row w-100">
-                            <label for="newsletter1" class="visually-hidden">Adresse email</label>
-                            <input id="newsletter1" name="email" type="email" class="newsletter-input" placeholder="Adresse email" required>
-                            <button class="newsletter-btn" type="submit">S'inscrire</button>
-                        </div>
+                        <input type="email" name="email" class="form-control mb-3 mb-md-0 me-md-2" placeholder="Entrez votre adresse email" required />
+                        <button type="submit" class="btn btn-primary">S'abonner</button>
                     </form>
                 </div>
             </div>
-
         </div>
-
-
-        <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
     </section>
     @include('includes.footer')
 
@@ -72,6 +106,17 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.getElementById("preloader").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("preloader").style.display = "none";
+                }, 500);
+            }, 2000); // Disparaît après 3 secondes
+        });
 
     </script>
 </body>
