@@ -1,4 +1,4 @@
-{{-- <div class="top-nav">
+<div class="top-nav">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-auto">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <!-- NavBar -->
 <nav class="navbar navbar-expand-lg navbar-back">
     <div class="container">
@@ -30,19 +30,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mx-5">
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('/') ? 'text-dark' : 'text-dark' }}" href="{{ url('/') }}">Accueil</a>
+                    <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('/') ? 'text-dark' : 'text-dark' }}" href="{{ url('/') }}">Accueil</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('about') ? 'text-dark' : 'text-dark' }}" href="{{ url('about') }}">A propos</a>
+                    <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('about') ? 'text-dark' : 'text-dark' }}" href="{{ url('about') }}">A propos</a>
                 </li>
                 <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('rooms') ? 'text-dark' : 'text-dark' }}" href="{{ url('rooms') }}">Nos chambres</a>
+                    <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('rooms') ? 'text-dark' : 'text-dark' }}" href="{{ url('rooms') }}">Nos chambres</a>
                 </li>
                 {{-- <li class="nav-item px-3">
-                    <a style="font-weight: 900" class="nav-link text-uppercase {{ request()->is('blog') ? 'text-dark' : 'text-dark' }}" href="{{ url('blog') }}">Blog</a>
+                    <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('blog') ? 'text-dark' : 'text-dark' }}" href="{{ url('blog') }}">Blog</a>
                 </li> --}}
                 <li class="nav-item px-3">
-                    <a href="mailto:hotelchicpalace@gmail.com" class="nav-link btn btn-warning text-uppercase {{ request()->is('contact') ? 'active' : '' }}" style="font-weight: 900;">Contact</a>
+                    <a href="mailto:hotelchicpalace@gmail.com" class="nav-link btn btn-warning text-capitalize {{ request()->is('contact') ? 'active' : '' }}" style="font-weight: 900;">Contact</a>
                 </li>
             </ul>
 

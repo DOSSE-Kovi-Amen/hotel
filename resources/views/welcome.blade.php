@@ -1,128 +1,121 @@
 @extends('layouts.site')
 
 @section('content')
-{{-- Banner Slides --}}
-<div id="banner-slide">
-    @php
-    $banners=App\Models\SectionMedia::find(3);
-    @endphp
-    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            @foreach (json_decode($banners->medias) as $key=> $banner)
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $key }}" class="{{$key==0? 'active' :'' }}" aria-current="true" aria-label="Slide {{ $key }}"></button>
-            @endforeach
-            {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    {{-- Banner Slides --}}
+    <div id="banner-slide">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                @foreach ($hero_sections as $key => $hero_section)
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $key }}"
+                        class="{{ $key == 0 ? 'active' : '' }}" aria-current="true"
+                        aria-label="Slide {{ $key }}"></button>
+                @endforeach
+                {{-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> --}}
 
-        </div>
-        <div class="carousel-inner">
-
-            @foreach (json_decode($banners->medias) as $key=> $banner)
-            @if ($key==0)
-            <div class="carousel-item banner active">
-                <img src="{{ asset(Voyager::image($banner)) }}" class="d-block w-100" alt="...">
-                <div class="bg-overlay"></div>
             </div>
-            @else
-            <div class="carousel-item banner">
-                <img src="{{ asset(Voyager::image($banner)) }}" class="d-block w-100" alt="...">
-                <div class="bg-overlay"></div>
-            </div>
-            @endif
+            <div class="carousel-inner">
 
-            @endforeach
-
-
-            <div class="bg-text text-center">
-                <div class="container content-overlay">
-                    <h2 class="banner-title text-white">A l’’Hôtel Chic Palace, c’est le confort, la sérénité et la sécurité !</h2>
-                    {{-- <p class="text-white">Une ONG qui a pour mission d'aider et de soutenir les démunis</p> --}}
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-@include('includes.services')
-
-{{-- About --}}
-
-<section class="about-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Texte -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
-                <p>
-                    L’Hôtel Chic Palace est un joyau situé à l’entrée de la ville de Kpalimé. Il associe élégance, douceur et luxe pour offrir un cadre agréable et reposant. Avec une équipe dynamique à votre service, découvrez autrement l’hôtelerie à Kpalimé. Soyez chez nous comme chez vous !
-                </p>
-                <a href="{{ url('about') }}" class="btn btn-main">En savoir plus</a>
-            </div>
-
-            <!-- Image -->
-            <div class="col-lg-6 about-image">
-                <img data-aos="fade-right" src="{{ asset('images/dom_hebergement.jpg') }}" alt="À propos de nous">
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- Projets --}}
-<section id="projects">
-    <div class="container">
-        <h2 class="section-title text-left mb-5"><strong>Nos chambres</strong></h2>
-
-        <div class="owl-theme owl-carousel" id="projects-slider">
-            @foreach ($rooms as $room)
-            <div class="project">
-                <a class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#room{{ $room->id }}">
-                    <div class="overlay"></div>
-                    @php
-                    $images = json_decode($room->images); // Décoder le JSON en tableau PHP
-                    $firstImage = $images[0] ?? null; // Récupérer la première image (ou null si vide)
-                    @endphp
-
-                    @if($firstImage)
-                    <img class="project-img" src="{{ asset(Voyager::image($firstImage)) }}" alt="Image principale">
+                @foreach ($hero_sections as $key => $hero_section)
+                    @if ($key == 0)
+                        <div class="carousel-item banner active">
+                            <img src="{{ asset(Voyager::image($hero_section->image)) }}" class="d-block w-100"
+                                alt="...">
+                            <div class="bg-overlay"></div>
+                            <div class="bg-text text-center">
+                                <div class="container content-overlay">
+                                    <h2 class="banner-title text-white">{{ $hero_section->title }}</h2>
+                                    <p class="text-white">{{ $hero_section->description }}</p>
+                                </div>
+                            </div>
+                        </div>
                     @else
-                    <p>Aucune image disponible</p>
+                        <div class="carousel-item banner">
+                            <img src="{{ asset(Voyager::image($hero_section->image)) }}" class="d-block w-100"
+                                alt="...">
+                            <div class="bg-overlay"></div>
+                            <div class="bg-text text-center">
+                                <div class="container content-overlay">
+                                    <h2 class="banner-title text-white">{{ $hero_section->title }}</h2>
+                                    <p class="text-white">{{ $hero_section->description }}</p>
+                                </div>
+                            </div>
+                        </div>
                     @endif
-                    <div class="content d-flex justify-content-between px-4">
-                        <div>
-                            <h4 class="text-white">{{ $room->title }}</h4 class="text-white">
-                            <span class="badge rounded-pill text-bg-info fs-6">{{ $room->price }} F CFA</span>
+                @endforeach
 
 
-                        </div>
-                        <div style="align-self: flex-end">
-                            <a class="btn btn-success" style=" position: relative; bottom: 0;" class="text-white" href="#" data-bs-toggle="modal" data-bs-target="#room{{ $room->id }}">Réserver</a>
-
-                        </div>
-
-                    </div>
-                </a>
             </div>
-            @endforeach
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        @foreach ($rooms as $room)
-        @include('includes.modals.room')
-        @endforeach
-        <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('rooms') }}">Voir tout</a>
-        </p>
     </div>
-</section>
+    @include('includes.services')
+
+    {{-- About --}}
+    @include('includes.about')
+
+    {{-- Projets --}}
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title text-left mb-5 mt-5"><strong>Nos chambres</strong></h2>
+
+            <div class="owl-theme owl-carousel" id="projects-slider">
+                @foreach ($rooms as $room)
+                    <div class="project">
+                        <a class="text-white" href="#" data-bs-toggle="modal"
+                            data-bs-target="#room{{ $room->id }}">
+                            <div class="overlay"></div>
+                            @php
+                                $images = json_decode($room->images); // Décoder le JSON en tableau PHP
+                                $firstImage = $images[0] ?? null; // Récupérer la première image (ou null si vide)
+                            @endphp
+
+                            @if ($firstImage)
+                                <img class="project-img" src="{{ asset(Voyager::image($firstImage)) }}"
+                                    alt="Image principale">
+                            @else
+                                <p>Aucune image disponible</p>
+                            @endif
+                            <div class="content d-flex justify-content-between px-4">
+                                <div>
+                                    <h4 class="text-white">{{ $room->title }}</h4 class="text-white">
+                                    <span class="badge rounded-pill text-bg-info fs-6">{{ $room->price }} F CFA</span>
 
 
-<!--Section: Content-->
-{{-- <section id="blog" style="background: rgba(216, 216, 216, 0.226)">
+                                </div>
+                                <div style="align-self: flex-end">
+                                    <a class="btn btn-success" style=" position: relative; bottom: 0;" class="text-white"
+                                        href="#" data-bs-toggle="modal"
+                                        data-bs-target="#room{{ $room->id }}">Réserver</a>
+
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            @foreach ($rooms as $room)
+                @include('includes.modals.room')
+            @endforeach
+            <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ url('rooms') }}">Voir tout</a>
+            </p>
+        </div>
+    </section>
+
+
+    <!--Section: Content-->
+    {{-- <section id="blog" style="background: rgba(216, 216, 216, 0.226)">
     <div class="container text-center">
         <h3 class="section-subtile mb-1">BLOG</h3>
         <h2 class="section-title  mb-5 ">Derniers Posts</h2>
@@ -157,34 +150,39 @@
     </div>
 </section> --}}
 
-<!--Section: Content-->
+    <!--Section: Content-->
 
-<section class="text-center" style="background-color: #a6836d ">
-    {{-- <h2 class="section-title mb-5 text-center text-white" data-aos="fade-left">Galerie d'images</h2> --}}
+    <section class="text-center mb-5">
+        <h2 class="section-title mb-5 text-center mt-4" data-aos="fade-left" style="color: #1a4922;">Galerie d'images</h2>
 
-    <div class="photo-gallery">
-        @php
-        $galeries=App\Models\SectionMedia::find(1);
-        @endphp
-        @for ($i=0; $i < 12; $i++) <div class="gallery-item">
-            <img src="{{ asset(Voyager::image(json_decode($galeries->medias)[$i])) }}" alt="Photo 1" class="galery-img">
-    </div>
+        <div class="photo-gallery">
+            {{-- @php
+                $galeries = App\Models\SectionMedia::find(1);
+            @endphp
+            @for ($i = 0; $i < 12; $i++)
+                <div class="gallery-item">
+                    <img src="{{ asset(Voyager::image(json_decode($galeries->medias)[$i])) }}" alt="Photo 1"
+                        class="galery-img">
+                </div>
+            @endfor --}}
+            @foreach ($galleries as $gallery)
+                @foreach (json_decode($gallery->images) as $galleryImage)
+                    <div class="gallery-item p-4">
+                        <img src="{{ asset(Voyager::image($galleryImage)) }}" alt="Photo 1" class="galery-img">
+                    </div>
+                @endforeach
+            @endforeach
 
-    @endfor
-    {{-- @foreach (json_decode($galeries->medias) as $galery)
-    <div class="gallery-item">
-        <img src="{{ asset(Voyager::image($galery)) }}" alt="Photo 1" class="galery-img">
-    </div>
-    @endforeach --}}
+        </div>
+        <div class="gallery-pagination mt-8">
+            {{ $galleries->links() }}
+        </div>
 
-    </div>
+        <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
+    </section>
 
-
-    <!-- Ajoutez davantage de div.gallery-item pour plus de photos -->
-</section>
-
-<!-- Galery -->
-{{-- <section class="text-center" style="background-color: #eeeeee">
+    <!-- Galery -->
+    {{-- <section class="text-center" style="background-color: #eeeeee">
     <h2 class="section-title mb-5" data-aos="fade-left">Partenaires</h2>
     <div class="photo-partner">
         @php

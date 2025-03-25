@@ -233,7 +233,6 @@ a {
 }
 
 #services .service:hover {
-    transform: scale(1.15);
     cursor: pointer;
 }
 
@@ -518,7 +517,7 @@ a {
 .about-section {
     background-color: #1a4922; /* Vert */
     color: white;
-    padding: 60px 0;
+    /* padding: 60px 0; */
   }
 
   .about-section h2 {
@@ -551,9 +550,11 @@ a {
 
   .about-image img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .service {
     display: flex;
@@ -563,7 +564,7 @@ a {
 }
 
 .card {
-    min-height: 350px; /* Fixez une hauteur minimale si nécessaire */
+    min-height: 250px; /* Fixez une hauteur minimale si nécessaire */
 }
 
 
@@ -667,4 +668,100 @@ a {
 }
 .swiper-slide{
 
+}
+
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-text {
+    width: 50%;
+    padding: 25px;
+}
+
+.about-image {
+    background-size: cover;
+    background-position: center right;
+    background-attachment: fixed;
+    height: 60vh;
+    width: 50%;
+    position: relative;
+}
+
+.image-overlay {
+    background-color: #000000a0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image {
+        height: 40vh;
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-text {
+        padding: 15px;
+    }
+
+    .about-title {
+        font-size: 1.5rem;
+    }
+
+    .about-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-image {
+        height: 30vh;
+    }
+}
+
+
+/* resources/css/app.css */
+.gallery-pagination nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.gallery-pagination .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.gallery-pagination .page-item.active .page-link {
+    background-color: #2d3748;
+    border-color: #2d3748;
+    color: white;
+}
+
+.gallery-pagination .page-link {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    color: #4a5568;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.gallery-pagination .page-link:hover {
+    background-color: #f7fafc;
 }

@@ -1,12 +1,14 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Room;
+use App\Models\Gallery;
 use App\Models\Project;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Newsletter;
+use App\Models\HeroSection;
 use App\Models\Inscription;
-use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulaireController;
@@ -26,9 +28,11 @@ use App\Http\Controllers\InscriptionController;
 Route::get('/', function () {
     // Display three last posts
     $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
+    $hero_sections= HeroSection::latest()->take(7)->get();
     $rooms = Room::orderBy('updated_at', 'desc')->get();
+    $galleries= Gallery::paginate(15);
 
-    return view('welcome', compact('last_posts', 'rooms'));
+    return view('welcome', compact('hero_sections','last_posts', 'rooms', 'galleries'));
 });
 
 Route::get('about', function () {

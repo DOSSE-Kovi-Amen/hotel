@@ -11,7 +11,9 @@
 
     <title>{{ setting('site.title') }}</title>
     <!-- Ajouter Playfair Display pour les titres -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
@@ -27,35 +29,34 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 3
-                , spaceBetween: 30
-                , loop: true
-                , autoplay: {
-                    delay: 3000
-                    , disableOnInteraction: false
-                , }
-                , pagination: {
-                    el: ".swiper-pagination"
-                    , clickable: true
-                , }
-                , navigation: {
-                    nextEl: ".swiper-button-next"
-                    , prevEl: ".swiper-button-prev"
-                , }
-                , breakpoints: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
                     0: {
                         slidesPerView: 1
-                    }
-                    , 768: {
+                    },
+                    768: {
                         slidesPerView: 2
-                    }
-                    , 1024: {
+                    },
+                    1024: {
                         slidesPerView: 3
                     }
                 }
             });
         });
-
     </script>
 
 </head>
@@ -74,9 +75,9 @@
     @yield('content')
     {{-- @include('includes.partner') --}}
     @if ($errors->has('email'))
-    <div class="alert alert-danger">
-        {{ $errors->first('email') }}
-    </div>
+        <div class="alert alert-danger">
+            {{ $errors->first('email') }}
+        </div>
     @endif
 
     <section class="newsletter-section">
@@ -85,11 +86,14 @@
                 <div class="col-lg-8">
                     <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
                     <p class="mb-4">
-                        Recevez les dernières nouvelles, mises à jour et offres exclusives directement dans votre boîte mail.
+                        Recevez les dernières nouvelles, mises à jour et offres exclusives directement dans votre boîte
+                        mail.
                     </p>
-                    <form action="{{ url('newsletters') }}" method="POST" class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                    <form action="{{ url('newsletters') }}" method="POST"
+                        class="d-flex flex-column flex-md-row justify-content-center align-items-center">
                         @csrf
-                        <input type="email" name="email" class="form-control mb-3 mb-md-0 me-md-2" placeholder="Entrez votre adresse email" required />
+                        <input type="email" name="email" class="form-control mb-3 mb-md-0 me-md-2"
+                            placeholder="Entrez votre adresse email" required />
                         <button type="submit" class="btn btn-primary">S'abonner</button>
                     </form>
                 </div>
@@ -106,7 +110,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -117,7 +120,16 @@
                 }, 500);
             }, 2000); // Disparaît après 3 secondes
         });
+    </script>
+    <script>
+        document.addEventListener("scroll", function() {
+            let scrollPosition = window.scrollY;
+            let parallax = document.querySelector(".parallax-bg");
 
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+            }
+        });
     </script>
 </body>
 
