@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Dish;
 use App\Models\Post;
 use App\Models\Room;
 use App\Models\Gallery;
@@ -28,11 +29,12 @@ use App\Http\Controllers\InscriptionController;
 Route::get('/', function () {
     // Display three last posts
     $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
-    $hero_sections= HeroSection::latest()->take(7)->get();
+    $hero_sections = HeroSection::latest()->take(7)->get();
     $rooms = Room::orderBy('updated_at', 'desc')->get();
-    $galleries= Gallery::paginate(15);
+    $dishes = Dish::limit(15)->orderBy('updated_at', "desc")->get();
+    $galleries = Gallery::paginate(15);
 
-    return view('welcome', compact('hero_sections','last_posts', 'rooms', 'galleries'));
+    return view('welcome', compact('hero_sections', 'last_posts', 'rooms', 'galleries', 'dishes'));
 });
 
 Route::get('about', function () {
@@ -92,11 +94,20 @@ Route::post('newsletters', function (Request $request) {
     Newsletter::create(['email' => $request->email]);
     return back();
 });
+Route::get('dishes', function (Request $request) {
+    $dishes= Dish::paginate(1);
+    return view('dishes', compact('dishes'));
+})->name('dishes.index');
+
+Route::get('dishes/{dish}', function (Dish $dish) {
+    return view('dish-detail', compact('dish'));
+})->name('dishes.show');
+
 
 Route::group(['prefix' => 'admin'], function () {
     // routes for voyager
     Voyager::routes();
 });
-Route::get('login', function(){
+Route::get('login', function () {
     return redirect('admin/login');
 })->name('login');

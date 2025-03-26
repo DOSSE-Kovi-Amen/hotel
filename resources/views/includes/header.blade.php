@@ -2,16 +2,42 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-auto">
-                <a href="mailto:hotelchicpalace@gmail.com"> <i class='bx bxs-envelope'></i>
-                    hotelchicpalace@gmail.com</a>
-                <a href="tel:90 98 84 50"> <i class='bx bxs-phone-call'></i>
-                    90 98 84 50</a>
+                @php
+                    $email = setting('contact.email');
+                    $phone = setting('contact.phone');
+                @endphp
+                
+                @if($email)
+                    <a href="mailto:{{ $email }}"> <i class='bx bxs-envelope'></i> {{ $email }}</a>
+                @endif
+                
+                @if($phone)
+                    <a href="tel:{{ $phone }}"> <i class='bx bxs-phone-call'></i> {{ $phone }}</a>
+                @endif
             </div>
             <div class="col-auto social-links">
-                <a target="_blank" href="https://www.facebook.com/Vision-Dynamik-104906801256391/?modal=admin_todo_tour"><i class='bx bxl-facebook'></i></a>
-                <a target="_blank" href="https://twitter.com/VDynamik"><i class='bx bxl-twitter'></i></a>
-                <a target="_blank" href="https://www.instagram.com/vision_dynamik/"><i class='bx bxl-instagram'></i></a>
-                <a target="_blank" href="https://www.youtube.com/channel/UCJITHlNEna0_Q86bA9eMQ5A?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
+                @php
+                    $facebook = setting('social.facebook');
+                    $twitter = setting('social.twitter');
+                    $instagram = setting('social.instagram');
+                    $youtube = setting('social.youtube');
+                @endphp
+                
+                @if($facebook)
+                    <a target="_blank" href="{{ $facebook }}"><i class='bx bxl-facebook'></i></a>
+                @endif
+                
+                @if($twitter)
+                    <a target="_blank" href="{{ $twitter }}"><i class='bx bxl-twitter'></i></a>
+                @endif
+                
+                @if($instagram)
+                    <a target="_blank" href="{{ $instagram }}"><i class='bx bxl-instagram'></i></a>
+                @endif
+                
+                @if($youtube)
+                    <a target="_blank" href="{{ $youtube }}"><i class='bx bxl-youtube'></i></a>
+                @endif
             </div>
         </div>
     </div>

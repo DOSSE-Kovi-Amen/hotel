@@ -66,7 +66,7 @@
 
     {{-- Projets --}}
     <section id="projects">
-        <div class="container">
+        <div class="container mb-5">
             <h2 class="section-title text-left mb-5 mt-5"><strong>Nos chambres</strong></h2>
 
             <div class="owl-theme owl-carousel" id="projects-slider">
@@ -150,10 +150,76 @@
     </div>
 </section> --}}
 
+    {{-- Section plats --}}
+    <section class="dishes-section">
+        <div class="container">
+            <h2 class="section-title">Nos délicieux plats</h2>
+            
+            <div class="dishes-carousel-wrapper">
+                <div class="owl-carousel owl-theme owl-dishes">
+                    @foreach($dishes as $dish)
+                        @php
+                            // Décoder le tableau stringifié d'images
+                            $images = json_decode($dish->images);
+                            $firstImage = $images[0] ?? 'default-dish.jpg';
+                        @endphp
+                        
+                        <div class="item">
+                            <div class="dish-card">
+                                @if($dish->is_featured)
+                                    <span class="dish-badge">Recommandé</span>
+                                @endif
+                                
+                                <div class="dish-img-container">
+                                    @if(count($images) > 1)
+                                        <div id="dishCarousel-{{ $loop->index }}" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                @foreach($images as $index => $image)
+                                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                                        <img src="{{ Voyager::image($image) }}" class="dish-img d-block w-100" alt="{{ $dish->name }}">
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            {{-- <button class="carousel-control-prev" type="button" data-bs-target="#dishCarousel-{{ $loop->index }}" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#dishCarousel-{{ $loop->index }}" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button> --}}
+                                            <div class="carousel-indicators">
+                                                @foreach($images as $index => $image)
+                                                    <button type="button" data-bs-target="#dishCarousel-{{ $loop->index }}" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"></button>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @else
+                                        <img src="{{ Voyager::image($firstImage) }}" class="dish-img" alt="{{ $dish->title }}">
+                                    @endif
+                                </div>
+                                
+                                <div class="dish-body">
+                                    <h3 class="dish-title">{{ $dish->title }}</h3>
+                                    <div class="dish-price">{{ number_format($dish->price, 2) }} F CFA</div>
+                                    <p class="dish-description">{{ Str::limit($dish->excerpt, 120) }}</p>
+                                    <a href="{{ route('dishes.show', $dish->id) }}" class="btn btn-outline-dark">Voir détails</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <p class="text-center"><a class="btn btn-success mt-5 px-4 py-2" href="{{ route('dishes.index') }}">Voir tout</a>
+            </p>
+        </div>
+    </section>
+
     <!--Section: Content-->
 
     <section class="text-center mb-5">
-        <h2 class="section-title mb-5 text-center mt-4" data-aos="fade-left" style="color: #1a4922;">Galerie d'images</h2>
+        <h2 class="section-title mb-5 text-center mt-4" data-aos="fade-left" style="color: #1a4922;">Galerie d'images
+        </h2>
 
         <div class="photo-gallery">
             {{-- @php
