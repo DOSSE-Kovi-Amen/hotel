@@ -13,31 +13,45 @@
         </nav>
     </div>
 </div>
-<section id="contact">
-
+<section id="contact" class="my-5">
     <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div class="row align-items-center">
             <div class="col-12 col-sm-6 col-lg-4">
-                <img style="object-fit: cover; height:400px;width:100%" src="{{ asset('images/cntct.jpg') }}" alt="">
+                <img style="object-fit: cover; height:400px;width:100%" src="{{ asset('contact.jpg') }}" alt="">
             </div>
             <div class="col-lg-6 offset-lg-1">
-                {{-- <form>
+                <form method="POST" action="{{ route('contact.send') }}">
+                    @csrf
                     <div class="mb-3">
-                        <small>Nom</small>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="name" class="form-label">Nom</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <small>Email</small>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <small>Message</small>
-                        <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>
+                        <label for="message" class="form-label">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="4" class="form-control @error('message') is-invalid @enderror" required>{{ old('message') }}</textarea>
+                        @error('message')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-success">Envoyer</button>
-                </form> --}}
-                <a class="btn btn-dark" href="mailto:contact@visiondynamik.org"> <i class='bx bxs-envelope'></i>
-                    contact@visiondynamik.org</a>
+                </form>
             </div>
         </div>
     </div>

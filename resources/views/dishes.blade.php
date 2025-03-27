@@ -119,8 +119,36 @@
 @endsection
 
 @section('content')
+<div id="top_banner"
+style="background-image: url({{ asset('images/hcp1.jpg') }}); background-size:cover;
+background-position:center center;">
+<div class="d-flex flex-column justify-content-center align-items-center"
+    style="height:300px;width:100%; background: linear-gradient(rgba(73, 73, 73, 0.377), rgba(0, 0, 0, 0.897));">
+    <h1 class="text-center page-title text-white mb-3"><strong>Restaurant</strong></h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Accueil</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Nos plats</li>
+        </ol>
+    </nav>
+</div>
+</div>
 <section class="dishes-section">
     <div class="container">
+                    <!-- Ajout du compteur de chambres -->
+                    <div class="row mb-4" data-aos="fade-right">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">
+                                    <strong>{{ $dishes->total() }} menus</strong> disponibles
+                                </h4>
+                                <div class="text-muted">
+                                    Affichage de {{ $dishes->firstItem() }} à {{ $dishes->lastItem() }} sur {{ $dishes->total() }}
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
         <h2 class="section-title">Notre Menu</h2>
         
         <div class="row">

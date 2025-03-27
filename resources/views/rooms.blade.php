@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ url('/') }}">Accueil</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Nos projets</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Nos chambres</li>
                 </ol>
             </nav>
         </div>
@@ -53,7 +53,7 @@
                                     <div>
                                         <h4 class="text-white">{{ $room->title }}</h4 class="text-white">
 
-                                        <span class="badge rounded-pill text-bg-info fs-6">{{ $room->price }} FCFA</span>
+                                        <span class="badge rounded-pill text-bg-info fs-6">{{ number_format($room->price, 0, ',', ' ') }} FCFA</span>
 
                                     </div>
                                     <div style="align-self: flex-end">

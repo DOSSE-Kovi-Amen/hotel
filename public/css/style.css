@@ -765,3 +765,65 @@ a {
 .gallery-pagination .page-link:hover {
     background-color: #f7fafc;
 }
+
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+}
+.main-image-container {
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+.main-image-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.img-thumbnail {
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+.img-thumbnail:hover {
+    opacity: 1;
+    border-color: var(--bs-success);
+    transform: scale(1.05);
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.object-fit-cover {
+    object-fit: cover;
+}
+.amenities .badge {
+    padding: 8px 12px;
+}
+
+/* booking */
+.booking-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.booking-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+#booking {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-control, .form-select {
+    border-radius: 0.25rem !important;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #1a4922;
+    box-shadow: 0 0 0 0.25rem rgba(26, 73, 34, 0.25);
+}
+
+.input-group-text {
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}

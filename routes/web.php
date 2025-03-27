@@ -12,6 +12,7 @@ use App\Models\HeroSection;
 use App\Models\Inscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormulaireController;
 use App\Http\Controllers\InscriptionController;
 
@@ -40,9 +41,8 @@ Route::get('/', function () {
 Route::get('about', function () {
     return view('about');
 });
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 Route::get('blog', function () {
     $categories = Category::all();
@@ -95,13 +95,14 @@ Route::post('newsletters', function (Request $request) {
     return back();
 });
 Route::get('dishes', function (Request $request) {
-    $dishes= Dish::paginate(1);
+    $dishes= Dish::paginate(60);
     return view('dishes', compact('dishes'));
 })->name('dishes.index');
 
 Route::get('dishes/{dish}', function (Dish $dish) {
     return view('dish-detail', compact('dish'));
 })->name('dishes.show');
+
 
 
 Route::group(['prefix' => 'admin'], function () {

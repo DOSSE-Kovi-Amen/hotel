@@ -3,8 +3,8 @@
         <div class="row justify-content-between">
             <div class="col-auto">
                 @php
-                    $email = setting('contact.email');
-                    $phone = setting('contact.phone');
+                    $email = setting('site.email');
+                    $phone = setting('site.contact');
                 @endphp
                 
                 @if($email)
@@ -17,10 +17,10 @@
             </div>
             <div class="col-auto social-links">
                 @php
-                    $facebook = setting('social.facebook');
-                    $twitter = setting('social.twitter');
-                    $instagram = setting('social.instagram');
-                    $youtube = setting('social.youtube');
+                    $facebook = setting('site.facebook');
+                    $twitter = setting('site.twitter');
+                    $instagram = setting('site.instagram');
+                    $youtube = setting('site.youtube');
                 @endphp
                 
                 @if($facebook)
@@ -64,11 +64,16 @@
                 <li class="nav-item px-3">
                     <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('rooms') ? 'text-dark' : 'text-dark' }}" href="{{ url('rooms') }}">Nos chambres</a>
                 </li>
+
+                <li class="nav-item px-3">
+                    <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('dishes') ? 'text-dark' : 'text-dark' }}" href="{{ url('dishes') }}">Restaurant</a>
+                </li>
+
                 {{-- <li class="nav-item px-3">
                     <a style="font-weight: 900" class="nav-link text-capitalize {{ request()->is('blog') ? 'text-dark' : 'text-dark' }}" href="{{ url('blog') }}">Blog</a>
                 </li> --}}
                 <li class="nav-item px-3">
-                    <a href="mailto:hotelchicpalace@gmail.com" class="nav-link btn btn-warning text-capitalize {{ request()->is('contact') ? 'active' : '' }}" style="font-weight: 900;">Contact</a>
+                    <a href="{{url('contact')}}" class="nav-link  text-capitalize {{ request()->is('contact') ? 'active' : '' }}" style="font-weight: 900;">Contact</a>
                 </li>
             </ul>
 
