@@ -23,6 +23,8 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Swiper JS -->
@@ -84,10 +86,10 @@
         </div>
     @endif
 
-    <section class="newsletter-section">
+    <section id="booking" class="newsletter-section">
         <div class="container py-5">
             <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
                     <p class="mb-4">
                         Recevez les dernières nouvelles, mises à jour et offres exclusives directement dans votre boîte
@@ -100,6 +102,10 @@
                             placeholder="Entrez votre adresse email" required />
                         <button type="submit" class="btn btn-primary">S'abonner</button>
                     </form>
+                </div>
+                <div class="col-lg-6">
+                    @include('includes.booking')
+
                 </div>
             </div>
         </div>
@@ -184,6 +190,26 @@
             });
         });
     </script>
+<script>
+    function handleReservationClick(event) {
+        event.preventDefault(); // empêche le comportement par défaut
+
+        // Cible le modal ouvert
+        const modal = bootstrap.Modal.getInstance(event.target.closest('.modal'));
+        if (modal) {
+            modal.hide(); // ferme le modal
+
+            // Attend que le modal soit complètement caché
+            setTimeout(() => {
+                const bookingSection = document.getElementById("booking");
+                if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 400); // 400ms pour laisser le modal se fermer proprement
+        }
+    }
+</script>
+
 
 </body>
 

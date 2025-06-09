@@ -170,7 +170,7 @@ background-position:center center;">
                         
                         <div class="dish-body">
                             <h3 class="dish-title">{{ $dish->name }}</h3>
-                            <div class="dish-price">{{ number_format($dish->price, 2) }} €</div>
+                            <div class="dish-price">{{ number_format($dish->price, 2) }} F CFA</div>
                             <p class="dish-description">{{ Str::limit($dish->excerpt, 100) }}</p>
                             <a href="{{ route('dishes.show', $dish->id) }}" class="btn btn-sm btn-outline-dark">Voir détails</a>
                         </div>

@@ -87,7 +87,7 @@
         </div>
     <p class="text-center"> <a
             class="btn bg-success hover:bg-green-600 text-white px-6 py-2 rounded-full transition-colors duration-300"
-            href="{{ url('services') }}">Voir plus</a></p>
+            href="{{ url('about') }}">Voir plus</a></p>
 
     </div><br><br>
 

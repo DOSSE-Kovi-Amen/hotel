@@ -18,21 +18,21 @@
     <section class="bg-light mt-5">
         <div class="container">
             <!-- Ajout du compteur de chambres -->
-            <div class="row mb-4" data-aos="fade-right">
+            {{-- <div class="row mb-4" data-aos="fade-right">
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">
-                            <strong>{{ $rooms->total() }} chambres</strong> disponibles
+                            <strong>{{ $rooms2->total() }} chambres</strong> disponibles
                         </h4>
                         <div class="text-muted">
-                            Affichage de {{ $rooms->firstItem() }} à {{ $rooms->lastItem() }} sur {{ $rooms->total() }}
+                            Affichage de {{ $rooms2->firstItem() }} à {{ $rooms2->lastItem() }} sur {{ $rooms2->total() }}
                         </div>
                     </div>
                     <hr>
                 </div>
-            </div>
+            </div> --}}
             <div class="row" data-aos="fade-right">
-                @foreach ($rooms as $room)
+                @foreach ($rooms2 as $room)
                     <div class="col-lg-4 col-md-12 mb-4">
                         <div class="project">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#project{{ $room->id }}">
@@ -69,11 +69,11 @@
                     </div>
                 @endforeach
                 <div class="d-flex justify-content-center">
-                    {{ $rooms->onEachSide(1)->links() }}
+                    {{ $rooms2->onEachSide(1)->links() }}
                 </div>
 
             </div>
-            @foreach ($rooms as $room)
+            @foreach ($rooms2 as $room)
                 @include('includes.modals.room')
             @endforeach
         </div>

@@ -1,7 +1,7 @@
 <footer class="py-5 footer ">
     <div class="container">
         <div class="row">
-            <div class="col-6 col-md-6 mb-3">
+            <div class="col-12 col-md-6 mb-3">
                 <img style="object-fit:contain; height:55px" src="{{ asset('images/logo2.png') }}" alt="" srcset="">
                 <p class="text-dark mt-3"> A l’’Hôtel Chic Palace, c’est le confort, la sérénité et la sécurité !
                     <a class="text-dark text-decoration-underline" href="{{ url('about') }}">En savoir
@@ -10,7 +10,7 @@
 
             </div>
 
-            <div class="col-6 col-md-3 mb-3">
+            <div class="col-12 col-md-3 mb-3">
 
                 <h5>Menu</h5>
                 <ul class="nav flex-column">
@@ -26,7 +26,7 @@
                 </ul>
             </div>
 
-            <div class="col-6 col-md-3 mb-3">
+            <div class="col-12 col-md-3 mb-3">
 
                 <h5>Contact</h5>
                 <ul class="nav flex-column">

@@ -12,9 +12,9 @@ use App\Models\HeroSection;
 use App\Models\Inscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FormulaireController;
-use App\Http\Controllers\InscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,82 +26,21 @@ use App\Http\Controllers\InscriptionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\FormulaireController;
+use App\Http\Controllers\InscriptionController;
 
-Route::get('/', function () {
-    // Display three last posts
-    $last_posts = Post::limit(3)->orderBy('updated_at', "desc")->get();
-    $hero_sections = HeroSection::latest()->take(7)->get();
-    $rooms = Room::orderBy('updated_at', 'desc')->get();
-    $dishes = Dish::limit(15)->orderBy('updated_at', "desc")->get();
-    $galleries = Gallery::paginate(15);
-
-    return view('welcome', compact('hero_sections', 'last_posts', 'rooms', 'galleries', 'dishes'));
-});
-
-Route::get('about', function () {
-    return view('about');
-});
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
-
-Route::get('blog', function () {
-    $categories = Category::all();
-    $posts = Post::orderBy('updated_at', 'desc')->paginate(60);
-    return view('blog', compact('posts', 'categories'));
-});
-
-Route::get('blog/category/{slug}', function ($slug) {
-    $category = Category::where('slug', '=', $slug)->firstOrFail();
-    $categories = Category::all();
-    $posts = Post::where('category_id', '=', $category->id)
-        ->paginate(60);
-    return view('blog', compact('posts', 'categories'));
-});
-
-Route::get('blog/article/{category}/{slug}', function ($category, $slug) {
-    $last_posts = Post::limit(6)->orderBy('updated_at', "desc")->get();
-    $article = Post::where('slug', '=', $slug)->firstOrFail();
-    return view('article', compact('article', 'last_posts'));
-});
-
-Route::get('blog/search', function (Request $request) {
-    $categories = Category::all();
-    if ($request == null) {
-        $posts = Post::all()
-            ->paginate(60);
-    } else {
-        $posts = Post::where('title', 'LIKE', '%' . $request->search . '%')
-            ->paginate(60);
-    }
-
-    return view('blog', compact('posts', 'categories'));
-});
-
-Route::get('rooms', function () {
-    $rooms = Room::orderBy('updated_at', 'desc')->paginate(60);
-    return view('rooms', compact('rooms'));
-});
-
-Route::get('services', function () {
-    // $rooms = Room::orderBy('updated_at', 'desc')->paginate(60);
-    return view('services');
-});
-Route::post('newsletters', function (Request $request) {
-    $request->validate([
-        'email' => 'required|email|unique:newsletters', // Utilisez la règle 'email' pour valider le champ email.
-        // Autres règles de validation...
-    ]);
-    Newsletter::create(['email' => $request->email]);
-    return back();
-});
-Route::get('dishes', function (Request $request) {
-    $dishes= Dish::paginate(60);
-    return view('dishes', compact('dishes'));
-})->name('dishes.index');
-
-Route::get('dishes/{dish}', function (Dish $dish) {
-    return view('dish-detail', compact('dish'));
-})->name('dishes.show');
+Route::get('/', [IndexController::class, 'home'])->name('home');
+Route::get('about', [IndexController::class, 'about'])->name('about');
+Route::get('blog', [IndexController::class, 'blog'])->name('blog');
+Route::get('blog/category/{slug}', [IndexController::class, 'blogByCategory'])->name('blog.category');
+Route::get('blog/article/{category}/{slug}', [IndexController::class, 'blogArticle'])->name('blog.article');
+Route::get('blog/search', [IndexController::class, 'blogSearch'])->name('blog.search');
+Route::get('rooms', [IndexController::class, 'rooms'])->name('rooms');
+Route::get('services', [IndexController::class, 'services'])->name('services');
+Route::get('dishes', [IndexController::class, 'dishes'])->name('dishes.index');
+Route::get('dishes/{dish}', [IndexController::class, 'dishDetail'])->name('dishes.show');
+Route::post('newsletters', [IndexController::class, 'subscribeNewsletter'])->name('newsletters.store');
+Route::post('/booking/send', [BookingController::class, 'send'])->name('booking.send');
 
 
 

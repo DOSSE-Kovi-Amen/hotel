@@ -43,7 +43,7 @@
     </div>
 </div>
 <!-- NavBar -->
-<nav class="navbar navbar-expand-lg navbar-back">
+<nav class="navbar navbar-expand-lg navbar-back sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img style="object-fit:contain; height:45px" src="{{ asset('images/logo2.png') }}"
@@ -77,7 +77,7 @@
                 </li>
             </ul>
 
-            {{-- <a style="margin-right:5px" class="btn btn-success" href="{{ url('') }}">Faire un don</a> --}}
+            <a style="margin-right:5px" class="btn btn-success" href="#booking">Réserver</a>
         </div>
     </div>
 </nav>

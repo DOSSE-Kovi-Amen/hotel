@@ -165,7 +165,7 @@
                 <div class="dish-header">
                     <h1 class="dish-title">{{ $dish->title }}</h1>
                     <div class="dish-meta">
-                        <div class="dish-price">{{ number_format($dish->price, 2) }} €</div>
+                        <div class="dish-price">{{ number_format($dish->price, 2) }} F CFA</div>
                         @if ($dish->is_featured)
                             <div class="dish-badge">Recommandé</div>
                         @endif

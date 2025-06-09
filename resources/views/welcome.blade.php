@@ -92,7 +92,7 @@
         @include('includes.modals.room')
     @endforeach
 
-    @include('includes.booking')
+    {{-- @include('includes.booking') --}}
 
 
 
