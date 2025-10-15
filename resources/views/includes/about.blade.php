@@ -3,8 +3,8 @@
         <div class="overflow-hidden">
             <div class="about-container">
                 <!-- Texte -->
-                <div class="about-text p-5">
-                    <h2 class="about-title my-4" data-aos="fade-left">Qui sommes-nous?</h2>
+                <div class="about-text">
+                    <h2 class="about-title" data-aos="fade-left">Qui sommes-nous?</h2>
                     <p class="about-description">
                         L'Hôtel Chic Palace est un joyau situé à l'entrée de la ville de Kpalimé. Il associe élégance,
                         douceur et luxe pour offrir un cadre agréable et reposant. Avec une équipe dynamique à votre

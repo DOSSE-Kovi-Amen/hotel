@@ -13,7 +13,7 @@
                             <i class="fa-solid fa-bed"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Hébergement</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 px-8 py-3">
                             Bungalows climatisés, chambres climatisées et ventilées de type patio.
                         </p><br>
                     </div>
@@ -28,7 +28,7 @@
                             <i class="fa-solid fa-utensils"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Gastronomie</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 px-8 py-3">
                             Service de bar et restaurant proposant une cuisine variée.
                         </p><br>
                     </div>
@@ -43,7 +43,7 @@
                             <i class="fa-solid fa-building"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Autres Services</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 px-8 py-3">
                             3 salles de conférence, piscine sécurisée, connexion internet & Canal+.
                         </p><br>
                     </div>
@@ -58,7 +58,7 @@
                             <i class="fa-solid fa-chalkboard-teacher"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Salles de Conférence</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 px-8 py-3">
                             Des salles équipées pour conférences et séminaires.
                         </p><br>
                     </div>
@@ -73,22 +73,20 @@
                             <i class="fa-solid fa-car"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Parking Intérieur</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 px-8 py-3">
                             Un parking spacieux et sécurisé pour vos événements et séjours.
                         </p><br>
                     </div>
                 </div>
             </div>
 
-            <!-- Pagination du swiper (si utilisé) -->
+            <!-- Pagination du swiper -->
             <div class="swiper-pagination mt-4"></div>
-            <!-- Navigation (décommenter si nécessaire) -->
-            <!-- <div class=\"swiper-button-next\"></div>      <div class=\"swiper-button-prev\"></div> -->
         </div>
-    <p class="text-center"> <a
-            class="btn bg-success hover:bg-green-600 text-white px-6 py-2 rounded-full transition-colors duration-300"
-            href="{{ url('about') }}">Voir plus</a></p>
 
+        <p class="text-center mt-4">
+            <a class="btn bg-success hover:bg-green-600 text-white px-6 py-2 rounded-full transition-colors duration-300"
+                href="{{ url('about') }}">Voir plus</a>
+        </p>
     </div><br><br>
-
 </section>

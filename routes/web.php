@@ -41,7 +41,8 @@ Route::get('dishes', [IndexController::class, 'dishes'])->name('dishes.index');
 Route::get('dishes/{dish}', [IndexController::class, 'dishDetail'])->name('dishes.show');
 Route::post('newsletters', [IndexController::class, 'subscribeNewsletter'])->name('newsletters.store');
 Route::post('/booking/send', [BookingController::class, 'send'])->name('booking.send');
-
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 
 Route::group(['prefix' => 'admin'], function () {

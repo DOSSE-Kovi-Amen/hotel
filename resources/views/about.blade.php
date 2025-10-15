@@ -25,10 +25,10 @@
                     <div class="overflow-hidden">
                         <div class="about-container">
                             <!-- Texte -->
-                            <div class="about-text p-5">
-                                <h2 class="about-title my-4" data-aos="fade-left">{{$service->title}}</h2>
+                            <div class="about-text">
+                                <h2 class="about-title" data-aos="fade-left">{{ $service->title }}</h2>
                                 <p class="about-description">
-{{$service->description}} </p>
+                                    {{ $service->description }} </p>
                                 @if (!request()->is('about'))
                                     <a href="{{ url('about') }}" class="btn btn-main">En savoir plus</a>
                                 @endif
@@ -54,10 +54,10 @@
                                 <div class="image-overlay"></div>
                             </div>
                             <!-- Texte -->
-                            <div class="about-text p-5">
-                                <h2 class="about-title my-4" data-aos="fade-left">{{$service->title}}</h2>
+                            <div class="about-text py-5">
+                                <h2 class="about-title" data-aos="fade-left">{{ $service->title }}</h2>
                                 <p class="about-description">
-{{$service->description}} </p>
+                                    {{ $service->description }} </p>
                                 @if (!request()->is('about'))
                                     <a href="{{ url('about') }}" class="btn btn-main">En savoir plus</a>
                                 @endif

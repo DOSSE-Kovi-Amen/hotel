@@ -1,30 +1,35 @@
 <?php
 
-// app/Http/Controllers/ContactController.php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactFormMail;
+use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
-    public function show()
+    public function index()
     {
-        return view('contact');
+        return view('contact'); // Ton Blade : resources/views/contact.blade.php
     }
 
     public function send(Request $request)
     {
-        $validated = $request->validate([
+        // Validation des champs
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string|min:10',
+            'email' => 'required|email',
+            'message' => 'required|string',
         ]);
 
-        // Envoi de l'email à l'equipe de gestion du sitey
-        Mail::to('contact@hotel-chic-palace.com')->send(new ContactFormMail($validated));
+        try {
+            // Envoi de l’email
+            Mail::to('contact@hotel-chic-palace.com')->send(new ContactMail($request->all()));
 
-        return back()->with('success', 'Votre message a été envoyé avec succès!');
+            return redirect()->back()->with('success', 'Votre message a été envoyé avec succès !');
+        } catch (\Exception $e) {
+            // Si l'envoi échoue
+            return redirect()->back()->with('error', "Erreur lors de l'envoi du message : " . $e->getMessage());
+        }
     }
 }
